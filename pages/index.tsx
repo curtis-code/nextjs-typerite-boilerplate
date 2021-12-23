@@ -3,6 +3,7 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import Search from '../components/Search';
 import PostLink from '../components/PostLink';
 
@@ -42,9 +43,11 @@ const Home: NextPage = function () {
 
           <div className="header__top">
             <div className="header__logo">
-              <a className="site-logo" href="index.html">
-                <img src="images/logo.svg" alt="Homepage" />
-              </a>
+              <Link href="/">
+                <a className="site-logo">
+                  <img src="images/logo.svg" alt="Homepage" />
+                </a>
+              </Link>
             </div>
           </div>
 
