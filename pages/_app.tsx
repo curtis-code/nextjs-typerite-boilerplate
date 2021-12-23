@@ -7,10 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Component {...pageProps} />
-      <Script type="text/javascript" src="/js/modernizr.js" />
-      <Script type="text/javascript" src="/js/jquery.js" />
-      <Script type="text/javascript" src="/js/plugins.js" />
-      <Script type="text/javascript" src="/js/main.js" />
+      <Script type="text/javascript" src="/js/bundle.js" />
     </>
   );
 }
