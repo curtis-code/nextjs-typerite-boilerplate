@@ -3,6 +3,7 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Search from '../components/Search';
 import PostLink from '../components/PostLink';
 
 // eslint-disable-next-line react/function-component-definition
@@ -107,33 +108,7 @@ const Home: NextPage = function () {
 
         </header>
 
-        <div className="s-search">
-
-          {/* <div className="search-block">
-
-            <form role="search" method="get" className="search-form" action="#">
-              <label>
-                <span className="hide-content">Search for:</span>
-                <input
-                  type="search"
-                  className="search-field"
-                  placeholder="Type Keywords"
-                  value="" name="s" title="Search for:" autoComplete="off" />
-              </label>
-              <input type="submit" className="search-submit" value="Search" />
-            </form>
-
-            <a href="#0" title="Close Search" className="search-close">Close</a>
-
-          </div>
-
-          <a href="#0" className="search-trigger">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={{ fill: 'rgba(0, 0, 0, 1)', transform: '' }}><path d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z"></path></svg>
-            <span>Search</span>
-          </a> */}
-          <span className="search-line" />
-
-        </div>
+        <Search />
 
         <div className="s-content">
           <div className="masonry-wrap">
