@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Component {...pageProps} />
-      <Script type="text/javascript" src="/js/compiled.js" />
+      <Script type="text/javascript" src="/js/bundle.js" />
     </>
   );
 }
