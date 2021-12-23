@@ -6,9 +6,14 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Search from '../components/Search';
 import PostLink from '../components/PostLink';
+import { Post } from '../types/Post';
 
 // eslint-disable-next-line react/function-component-definition
 const Home: NextPage = function () {
+  const dummyPost: Post = {
+    title: 'Post title',
+  };
+
   return (
     <>
       <Head>
@@ -117,7 +122,7 @@ const Home: NextPage = function () {
           <div className="masonry-wrap">
             <div className="masonry">
               <div className="grid-sizer" />
-              <PostLink />
+              <PostLink post={dummyPost} />
 
               <article className="masonry__brick entry format-quote animate-this">
 

@@ -1,6 +1,13 @@
 import React from 'react';
+import { Post } from '../types/Post';
 
-export default function PostLink() {
+interface IPostLink {
+  post: Post
+}
+
+export default function PostLink({ post }: IPostLink) {
+  const { title } = post;
+
   return (
     <article className="masonry__brick entry format-standard animate-this">
 
@@ -17,7 +24,7 @@ export default function PostLink() {
       <div className="entry__text">
         <div className="entry__header">
 
-          <h2 className="entry__title"><a href="single-standard.html">Just a Standard Format Post.</a></h2>
+          <h2 className="entry__title"><a href="single-standard.html">{title}</a></h2>
           <div className="entry__meta">
             <span className="entry__meta-cat">
               <a href="category.html">Design</a>

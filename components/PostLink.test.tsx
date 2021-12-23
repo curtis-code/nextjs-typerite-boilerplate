@@ -1,15 +1,20 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import PostLink from './PostLink';
+import { Post } from '../types/Post';
 
 describe('PostLink', () => {
+  const post: Post = {
+    title: 'post title',
+  };
+
   beforeEach(() => {
-    render(<PostLink />);
+    render(<PostLink post={post} />);
   });
 
   it('renders a heading', () => {
     const heading = screen.getByRole('heading', {
-      name: 'Just a Standard Format Post.',
+      name: post.title,
     });
 
     expect(heading).toBeInTheDocument();
