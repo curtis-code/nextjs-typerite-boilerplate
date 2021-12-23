@@ -1,9 +1,12 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import PostLink from '../components/PostLink'
+/* eslint-disable jsx-a11y/anchor-has-content */
+/* eslint-disable jsx-a11y/control-has-associated-label */
+import React from 'react';
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import PostLink from '../components/PostLink';
 
-const Home: NextPage = () => {
+// eslint-disable-next-line react/function-component-definition
+const Home: NextPage = function () {
   return (
     <>
       <Head>
@@ -24,12 +27,11 @@ const Home: NextPage = () => {
         <link rel="manifest" href="site.webmanifest" />
       </Head>
 
-
       <div id="preloader">
         <div id="loader" className="dots-fade">
-          <div></div>
-          <div></div>
-          <div></div>
+          <div />
+          <div />
+          <div />
         </div>
       </div>
 
@@ -112,7 +114,11 @@ const Home: NextPage = () => {
             <form role="search" method="get" className="search-form" action="#">
               <label>
                 <span className="hide-content">Search for:</span>
-                <input type="search" className="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autoComplete="off" />
+                <input
+                  type="search"
+                  className="search-field"
+                  placeholder="Type Keywords"
+                  value="" name="s" title="Search for:" autoComplete="off" />
               </label>
               <input type="submit" className="search-submit" value="Search" />
             </form>
@@ -125,21 +131,24 @@ const Home: NextPage = () => {
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={{ fill: 'rgba(0, 0, 0, 1)', transform: '' }}><path d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z"></path></svg>
             <span>Search</span>
           </a> */}
-          <span className="search-line"></span>
+          <span className="search-line" />
 
         </div>
 
         <div className="s-content">
           <div className="masonry-wrap">
             <div className="masonry">
-              <div className="grid-sizer"></div>
+              <div className="grid-sizer" />
               <PostLink />
 
               <article className="masonry__brick entry format-quote animate-this">
 
                 <div className="entry__thumb">
                   <blockquote>
-                    <p>Good design is making something intelligible and memorable. Great design is making something memorable and meaningful.</p>
+                    <p>
+                      Good design is making something intelligible and memorable.
+                      Great design is making something memorable and meaningful.
+                    </p>
 
                     <cite>Dieter Rams</cite>
                   </blockquote>
@@ -151,8 +160,11 @@ const Home: NextPage = () => {
 
                 <div className="entry__thumb">
                   <a href="single-standard.html" className="entry__thumb-link">
-                    <img src="images/thumbs/masonry/tulips-600.jpg"
-                      srcSet="images/thumbs/masonry/tulips-600.jpg 1x, images/thumbs/masonry/tulips-1200.jpg 2x" alt="" />
+                    <img
+                      src="images/thumbs/masonry/tulips-600.jpg"
+                      srcSet="images/thumbs/masonry/tulips-600.jpg 1x, images/thumbs/masonry/tulips-1200.jpg 2x"
+                      alt=""
+                    />
                   </a>
                 </div>
 
@@ -170,20 +182,24 @@ const Home: NextPage = () => {
                   </div>
                   <div className="entry__excerpt">
                     <p>
-                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt
+                      mollit id et sit proident dolor nulla sed commodo est ad minim elit
+                      reprehenderit nisi officia aute incididunt velit sint in aliqua...
                     </p>
                   </div>
                 </div>
 
               </article>
 
-
               <article className="masonry__brick entry format-standard animate-this">
 
                 <div className="entry__thumb">
                   <a href="single-standard.html" className="entry__thumb-link">
-                    <img src="images/thumbs/masonry/dew-600.jpg"
-                      srcSet="images/thumbs/masonry/dew-600.jpg 1x, images/thumbs/masonry/dew-1200.jpg 2x" alt="" />
+                    <img
+                      src="images/thumbs/masonry/dew-600.jpg"
+                      srcSet="images/thumbs/masonry/dew-600.jpg 1x, images/thumbs/masonry/dew-1200.jpg 2x"
+                      alt=""
+                    />
                   </a>
                 </div>
 
@@ -202,7 +218,9 @@ const Home: NextPage = () => {
                   </div>
                   <div className="entry__excerpt">
                     <p>
-                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit
+                      id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit
+                      nisi officia aute incididunt velit sint in aliqua...
                     </p>
                   </div>
                 </div>
@@ -213,8 +231,11 @@ const Home: NextPage = () => {
 
                 <div className="entry__thumb">
                   <a href="single-standard.html" className="entry__thumb-link">
-                    <img src="images/thumbs/masonry/rucksack-600.jpg"
-                      srcSet="images/thumbs/masonry/rucksack-600.jpg 1x, images/thumbs/masonry/rucksack-1200.jpg 2x" alt="" />
+                    <img
+                      src="images/thumbs/masonry/rucksack-600.jpg"
+                      srcSet="images/thumbs/masonry/rucksack-600.jpg 1x, images/thumbs/masonry/rucksack-1200.jpg 2x"
+                      alt=""
+                    />
                   </a>
                 </div>
 
@@ -235,7 +256,10 @@ const Home: NextPage = () => {
                   </div>
                   <div className="entry__excerpt">
                     <p>
-                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua
+                      incididunt mollit id et sit proident dolor nulla sed commodo
+                      est ad minim elit reprehenderit nisi officia aute incididunt
+                      velit sint in aliqua...
                     </p>
                   </div>
                 </div>
@@ -246,8 +270,11 @@ const Home: NextPage = () => {
 
                 <div className="entry__thumb">
                   <a href="single-standard.html" className="entry__thumb-link">
-                    <img src="images/thumbs/masonry/jump-600.jpg"
-                      srcSet="images/thumbs/masonry/jump-600.jpg 1x, images/thumbs/masonry/jump-1200.jpg 2x" alt="" />
+                    <img
+                      src="images/thumbs/masonry/jump-600.jpg"
+                      srcSet="images/thumbs/masonry/jump-600.jpg 1x, images/thumbs/masonry/jump-1200.jpg 2x"
+                      alt=""
+                    />
                   </a>
                 </div>
 
@@ -267,7 +294,9 @@ const Home: NextPage = () => {
                   </div>
                   <div className="entry__excerpt">
                     <p>
-                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt
+                      mollit id et sit proident dolor nulla sed commodo est ad minim elit
+                      reprehenderit nisi officia aute incididunt velit sint in aliqua...
                     </p>
                   </div>
                 </div>
@@ -278,8 +307,11 @@ const Home: NextPage = () => {
 
                 <div className="entry__thumb">
                   <a href="single-audio.html" className="entry__thumb-link">
-                    <img src="images/thumbs/masonry/guitarist-600.jpg"
-                      srcSet="images/thumbs/masonry/guitarist-600.jpg 1x, images/thumbs/masonry/guitarist-1200.jpg 2x" alt="" />
+                    <img
+                      src="images/thumbs/masonry/guitarist-600.jpg"
+                      srcSet="images/thumbs/masonry/guitarist-600.jpg 1x, images/thumbs/masonry/guitarist-1200.jpg 2x"
+                      alt=""
+                    />
                   </a>
                 </div>
 
@@ -297,7 +329,10 @@ const Home: NextPage = () => {
                   </div>
                   <div className="entry__excerpt">
                     <p>
-                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua
+                      incididunt mollit id et sit proident dolor nulla sed commodo est
+                      ad minim elit reprehenderit nisi officia aute incididunt velit
+                      sint in aliqua...
                     </p>
                   </div>
                 </div>
@@ -308,8 +343,11 @@ const Home: NextPage = () => {
 
                 <div className="entry__thumb">
                   <a href="single-standard.html" className="entry__thumb-link">
-                    <img src="images/thumbs/masonry/beetle-600.jpg"
-                      srcSet="images/thumbs/masonry/beetle-600.jpg 1x, images/thumbs/masonry/beetle-1200.jpg 2x" alt="" />
+                    <img
+                      src="images/thumbs/masonry/beetle-600.jpg"
+                      srcSet="images/thumbs/masonry/beetle-600.jpg 1x, images/thumbs/masonry/beetle-1200.jpg 2x"
+                      alt=""
+                    />
                   </a>
                 </div>
 
@@ -327,7 +365,9 @@ const Home: NextPage = () => {
                   </div>
                   <div className="entry__excerpt">
                     <p>
-                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit
+                      id et sit proident dolor nulla sed commodo est ad minim elit
+                      reprehenderit nisi officia aute incididunt velit sint in aliqua...
                     </p>
                   </div>
                 </div>
@@ -338,8 +378,11 @@ const Home: NextPage = () => {
 
                 <div className="entry__thumb video-image">
                   <a href="https://player.vimeo.com/video/117310401?color=339989&title=0&byline=0&portrait=0" data-lity className="entry__thumb-link">
-                    <img src="images/thumbs/masonry/cookies-600.jpg"
-                      srcSet="images/thumbs/masonry/cookies-600.jpg 1x, images/thumbs/masonry/cookies-1200.jpg 2x" alt="" />
+                    <img
+                      src="images/thumbs/masonry/cookies-600.jpg"
+                      srcSet="images/thumbs/masonry/cookies-600.jpg 1x, images/thumbs/masonry/cookies-1200.jpg 2x"
+                      alt=""
+                    />
                   </a>
                 </div>
 
@@ -358,7 +401,10 @@ const Home: NextPage = () => {
                   </div>
                   <div className="entry__excerpt">
                     <p>
-                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua
+                      incididunt mollit id et sit proident dolor nulla sed
+                      commodo est ad minim elit reprehenderit nisi officia aute
+                      incididunt velit sint in aliqua...
                     </p>
                   </div>
                 </div>
@@ -369,8 +415,11 @@ const Home: NextPage = () => {
 
                 <div className="entry__thumb">
                   <a href="single-standard.html" className="entry__thumb-link">
-                    <img src="images/thumbs/masonry/lamp-600.jpg"
-                      srcSet="images/thumbs/masonry/lamp-600.jpg 1x, images/thumbs/masonry/lamp-1200.jpg 2x" alt="" />
+                    <img
+                      src="images/thumbs/masonry/lamp-600.jpg"
+                      srcSet="images/thumbs/masonry/lamp-600.jpg 1x, images/thumbs/masonry/lamp-1200.jpg 2x"
+                      alt=""
+                    />
                   </a>
                 </div>
 
@@ -389,7 +438,9 @@ const Home: NextPage = () => {
                   </div>
                   <div className="entry__excerpt">
                     <p>
-                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt
+                      mollit id et sit proident dolor nulla sed commodo est ad minim elit
+                      reprehenderit nisi officia aute incididunt velit sint in aliqua...
                     </p>
                   </div>
                 </div>
@@ -414,16 +465,25 @@ const Home: NextPage = () => {
                 <div className="entry__thumb slider">
                   <div className="slider__slides">
                     <div className="slider__slide">
-                      <img src="images/thumbs/masonry/gallery/slide-1-600.jpg"
-                        srcSet="images/thumbs/masonry/gallery/slide-1-600.jpg 1x, images/thumbs/masonry/gallery/slide-1-1200.jpg 2x" alt="" />
+                      <img
+                        src="images/thumbs/masonry/gallery/slide-1-600.jpg"
+                        srcSet="images/thumbs/masonry/gallery/slide-1-600.jpg 1x, images/thumbs/masonry/gallery/slide-1-1200.jpg 2x"
+                        alt=""
+                      />
                     </div>
                     <div className="slider__slide">
-                      <img src="images/thumbs/masonry/gallery/slide-2-600.jpg"
-                        srcSet="images/thumbs/masonry/gallery/slide-2-600.jpg 1x, images/thumbs/masonry/gallery/slide-2-1200.jpg 2x" alt="" />
+                      <img
+                        src="images/thumbs/masonry/gallery/slide-2-600.jpg"
+                        srcSet="images/thumbs/masonry/gallery/slide-2-600.jpg 1x, images/thumbs/masonry/gallery/slide-2-1200.jpg 2x"
+                        alt=""
+                      />
                     </div>
                     <div className="slider__slide">
-                      <img src="images/thumbs/masonry/gallery/slide-3-600.jpg"
-                        srcSet="images/thumbs/masonry/gallery/slide-3-600.jpg 1x, images/thumbs/masonry/gallery/slide-3-1200.jpg 2x" alt="" />
+                      <img
+                        src="images/thumbs/masonry/gallery/slide-3-600.jpg"
+                        srcSet="images/thumbs/masonry/gallery/slide-3-600.jpg 1x, images/thumbs/masonry/gallery/slide-3-1200.jpg 2x"
+                        alt=""
+                      />
                     </div>
                   </div>
                 </div>
@@ -442,7 +502,9 @@ const Home: NextPage = () => {
                   </div>
                   <div className="entry__excerpt">
                     <p>
-                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt
+                      mollit id et sit proident dolor nulla sed commodo est ad minim elit
+                      reprehenderit nisi officia aute incididunt velit sint in aliqua...
                     </p>
                   </div>
                 </div>
@@ -453,8 +515,11 @@ const Home: NextPage = () => {
 
                 <div className="entry__thumb">
                   <a href="single-standard.html" className="entry__thumb-link">
-                    <img src="images/thumbs/masonry/walk-600.jpg"
-                      srcSet="images/thumbs/masonry/walk-600.jpg 1x, images/thumbs/masonry/walk-1200.jpg 2x" alt="" />
+                    <img
+                      src="images/thumbs/masonry/walk-600.jpg"
+                      srcSet="images/thumbs/masonry/walk-600.jpg 1x, images/thumbs/masonry/walk-1200.jpg 2x"
+                      alt=""
+                    />
                   </a>
                 </div>
 
@@ -472,7 +537,9 @@ const Home: NextPage = () => {
                   </div>
                   <div className="entry__excerpt">
                     <p>
-                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt
+                      mollit id et sit proident dolor nulla sed commodo est ad minim elit
+                      reprehenderit nisi officia aute incididunt velit sint in aliqua...
                     </p>
                   </div>
                 </div>
@@ -483,8 +550,11 @@ const Home: NextPage = () => {
 
                 <div className="entry__thumb">
                   <a href="single-standard.html" className="entry__thumb-link">
-                    <img src="images/thumbs/masonry/real-600.jpg"
-                      srcSet="images/thumbs/masonry/real-600.jpg 1x, images/thumbs/masonry/real-1200.jpg 2x" alt="" />
+                    <img
+                      src="images/thumbs/masonry/real-600.jpg"
+                      srcSet="images/thumbs/masonry/real-600.jpg 1x, images/thumbs/masonry/real-1200.jpg 2x"
+                      alt=""
+                    />
                   </a>
                 </div>
 
@@ -503,7 +573,9 @@ const Home: NextPage = () => {
                   </div>
                   <div className="entry__excerpt">
                     <p>
-                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                      Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt
+                      mollit id et sit proident dolor nulla sed commodo est ad minim elit
+                      reprehenderit nisi officia aute incididunt velit sint in aliqua...
                     </p>
                   </div>
                 </div>
@@ -539,19 +611,22 @@ const Home: NextPage = () => {
             <div className="column large-full footer__content">
               <div className="footer__copyright">
                 <span>© Copyright Typerite 2021</span>
-                <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+                <span>
+                  {'Design by '}
+                  <a href="https://www.styleshout.com/">StyleShout</a>
+                </span>
               </div>
             </div>
           </div>
 
           <div className="go-top">
-            <a className="smoothscroll" title="Back to Top" href="#top"></a>
+            <a className="smoothscroll" title="Back to Top" href="#top" />
           </div>
         </footer>
 
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
