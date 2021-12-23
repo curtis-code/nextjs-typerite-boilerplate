@@ -1,18 +1,23 @@
+import Image from 'next/image';
 import React from 'react';
 import { Post } from '../types/Post';
+
+interface IPostThumbnail {
+  post: Post
+}
 
 interface IPostLink {
   post: Post
 }
 
-function PostThumbnail() {
+function PostThumbnail({ post }: IPostThumbnail) {
   return (
     <div className="entry__thumb" data-testid="postthumbnail">
       <a href="single-standard.html" className="entry__thumb-link">
         <img
-          src="images/thumbs/masonry/woodcraft-600.jpg"
-          srcSet="images/thumbs/masonry/woodcraft-600.jpg 1x, images/thumbs/masonry/woodcraft-1200.jpg 2x"
-          alt=""
+          src={post.image}
+          // srcSet="images/thumbs/masonry/woodcraft-600.jpg 1x, images/thumbs/masonry/woodcraft-1200.jpg 2x"
+          alt={post.title}
         />
       </a>
     </div>
@@ -31,7 +36,7 @@ export default function PostLink({ post }: IPostLink) {
   return (
     <article className="masonry__brick entry format-standard animate-this">
 
-      {image && <PostThumbnail />}
+      {image && <PostThumbnail post={post} />}
 
       <div className="entry__text">
         <div className="entry__header">

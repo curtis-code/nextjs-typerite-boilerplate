@@ -10,12 +10,6 @@ import { Post } from '../types/Post';
 
 // eslint-disable-next-line react/function-component-definition
 const Home: NextPage = function () {
-  const dummyPost: Post = {
-    date: new Date('2021-02-03 11:35'),
-    title: 'Post title',
-    slug: 'post-title',
-  };
-
   return (
     <>
       <Head>
@@ -124,7 +118,18 @@ const Home: NextPage = function () {
           <div className="masonry-wrap">
             <div className="masonry">
               <div className="grid-sizer" />
-              <PostLink post={dummyPost} />
+              <PostLink post={{
+                date: new Date('2021-04-10 11:36'),
+                image: '/images/thumbs/masonry/woodcraft-600.jpg',
+                title: 'Post title',
+                slug: 'post-title',
+              }} />
+
+              <PostLink post={{
+                date: new Date('2021-02-03 11:35'),
+                title: 'Post title',
+                slug: 'post-title',
+              }} />
 
               <article className="masonry__brick entry format-quote animate-this">
 
