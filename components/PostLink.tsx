@@ -5,22 +5,33 @@ interface IPostLink {
   post: Post
 }
 
+function PostThumbnail() {
+  return (
+    <div className="entry__thumb" data-testid="postthumbnail">
+      <a href="single-standard.html" className="entry__thumb-link">
+        <img
+          src="images/thumbs/masonry/woodcraft-600.jpg"
+          srcSet="images/thumbs/masonry/woodcraft-600.jpg 1x, images/thumbs/masonry/woodcraft-1200.jpg 2x"
+          alt=""
+        />
+      </a>
+    </div>
+  );
+}
+
 export default function PostLink({ post }: IPostLink) {
-  const { title, slug } = post;
+  const { date, image, title, slug } = post;
   const postUrl = `/post/${slug}`;
+  const formattedDate = date.toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
 
   return (
     <article className="masonry__brick entry format-standard animate-this">
 
-      <div className="entry__thumb">
-        <a href="single-standard.html" className="entry__thumb-link">
-          <img
-            src="images/thumbs/masonry/woodcraft-600.jpg"
-            srcSet="images/thumbs/masonry/woodcraft-600.jpg 1x, images/thumbs/masonry/woodcraft-1200.jpg 2x"
-            alt=""
-          />
-        </a>
-      </div>
+      {image && <PostThumbnail />}
 
       <div className="entry__text">
         <div className="entry__header">
@@ -32,7 +43,7 @@ export default function PostLink({ post }: IPostLink) {
               <a href="category.html">Photography</a>
             </span>
             <span className="entry__meta-date">
-              <a href="single-standard.html">Apr 29, 2019</a>
+              <a href={postUrl}>{formattedDate}</a>
             </span>
           </div>
 

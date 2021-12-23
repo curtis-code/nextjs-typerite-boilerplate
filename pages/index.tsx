@@ -11,6 +11,7 @@ import { Post } from '../types/Post';
 // eslint-disable-next-line react/function-component-definition
 const Home: NextPage = function () {
   const dummyPost: Post = {
+    date: new Date('2021-02-03 11:35'),
     title: 'Post title',
     slug: 'post-title',
   };
