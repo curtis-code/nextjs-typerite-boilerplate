@@ -20,5 +20,6 @@ module.exports = {
         namedComponents: 'function-declaration',
       },
     ],
+    'jsx-a11y/anchor-is-valid': 'off',
   }
 }
