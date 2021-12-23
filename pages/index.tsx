@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import Script from 'next/script';
 import Head from 'next/head'
 import Image from 'next/image'
 
@@ -581,11 +580,6 @@ const Home: NextPage = () => {
         </footer>
 
       </div>
-
-      <Script type="text/javascript" src="/js/modernizr.js" />
-      <Script type="text/javascript" src="/js/jquery.js" />
-      <Script type="text/javascript" src="/js/plugins.js" />
-      <Script type="text/javascript" src="/js/main.js" />
     </>
   )
 }
