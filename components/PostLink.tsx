@@ -6,7 +6,8 @@ interface IPostLink {
 }
 
 export default function PostLink({ post }: IPostLink) {
-  const { title } = post;
+  const { title, slug } = post;
+  const postUrl = `/post/${slug}`;
 
   return (
     <article className="masonry__brick entry format-standard animate-this">
@@ -24,7 +25,7 @@ export default function PostLink({ post }: IPostLink) {
       <div className="entry__text">
         <div className="entry__header">
 
-          <h2 className="entry__title"><a href="single-standard.html">{title}</a></h2>
+          <h2 className="entry__title"><a href={postUrl}>{title}</a></h2>
           <div className="entry__meta">
             <span className="entry__meta-cat">
               <a href="category.html">Design</a>

@@ -6,6 +6,7 @@ import { Post } from '../types/Post';
 describe('PostLink', () => {
   const post: Post = {
     title: 'post title',
+    slug: 'post-title',
   };
 
   beforeEach(() => {
@@ -18,6 +19,12 @@ describe('PostLink', () => {
     });
 
     expect(heading).toBeInTheDocument();
+  });
+
+  it('renders heading link', () => {
+    expect(screen.getByRole('link', {
+      name: post.title,
+    }).closest('a')).toHaveAttribute('href', `/post/${post.slug}`);
   });
 
   it('renders Design tag', () => {

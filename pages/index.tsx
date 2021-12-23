@@ -12,6 +12,7 @@ import { Post } from '../types/Post';
 const Home: NextPage = function () {
   const dummyPost: Post = {
     title: 'Post title',
+    slug: 'post-title',
   };
 
   return (
