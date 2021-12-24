@@ -17,7 +17,7 @@ interface IPostLink {
 function PostThumbnail({ post }: IPostThumbnail) {
   return (
     <div className="entry__thumb" data-testid="postthumbnail">
-      <a href="single-standard.html" className="entry__thumb-link">
+      <a href={`/post/${post.slug}`} className="entry__thumb-link" data-testid="postthumbnail-link">
         <img
           src={post.image}
           // srcSet="images/thumbs/masonry/woodcraft-600.jpg 1x, images/thumbs/masonry/woodcraft-1200.jpg 2x"
@@ -31,7 +31,7 @@ function PostThumbnail({ post }: IPostThumbnail) {
 function PostTags({ tags }: IPostTags) {
   return (
     <span className="entry__meta-cat" data-testid="tags">
-      {tags.slice(0, 2).map((tag) => <a href={`/tag/${tag}`}>{tag}</a>)}
+      {tags.slice(0, 2).map((tag) => <a key={tag} href={`/tag/${tag}`}>{tag}</a>)}
     </span>
   );
 }

@@ -78,6 +78,12 @@ describe('PostLink', () => {
       ).toBeTruthy();
     });
 
+    it('renders link for image', () => {
+      expect(
+        screen.getByTestId('postthumbnail-link'),
+      ).toHaveAttribute('href', `/post/${post.slug}`);
+    });
+
     it('renders image', () => {
       expect(
         screen.getByRole('img'),
