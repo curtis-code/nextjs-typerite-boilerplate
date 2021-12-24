@@ -8,7 +8,8 @@ function PostThumbnail({ post }: { post: Post }) {
       <a href={`/post/${post.slug}`} className="entry__thumb-link" data-testid="postthumbnail-link">
         <img
           src={post.image}
-          // srcSet="images/thumbs/masonry/woodcraft-600.jpg 1x, images/thumbs/masonry/woodcraft-1200.jpg 2x"
+          // srcSet="images/thumbs/masonry/woodcraft-600.jpg 1x,
+          // images/thumbs/masonry/woodcraft-1200.jpg 2x"
           alt={post.title}
         />
       </a>

@@ -6,7 +6,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Search from '../components/Search';
 import PostLink from '../components/PostLink';
-import { Post } from '../types/Post';
 
 // eslint-disable-next-line react/function-component-definition
 const Home: NextPage = function () {
