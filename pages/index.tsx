@@ -121,6 +121,7 @@ const Home: NextPage = function () {
               <PostLink post={{
                 date: new Date('2021-04-10 11:36'),
                 image: '/images/thumbs/masonry/woodcraft-600.jpg',
+                tags: ['foo', 'bar'],
                 title: 'Post title',
                 slug: 'post-title',
               }} />

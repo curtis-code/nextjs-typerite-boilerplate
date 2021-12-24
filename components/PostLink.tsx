@@ -1,9 +1,13 @@
-import Image from 'next/image';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Post } from '../types/Post';
 
 interface IPostThumbnail {
   post: Post
+}
+
+interface IPostTags {
+  tags: Array<string>
 }
 
 interface IPostLink {
@@ -24,8 +28,24 @@ function PostThumbnail({ post }: IPostThumbnail) {
   );
 }
 
+function PostTags({ tags }: IPostTags) {
+  return (
+    <span className="entry__meta-cat" data-testid="tags">
+      {tags.slice(0, 2).map((tag) => <a href={`/tag/${tag}`}>{tag}</a>)}
+    </span>
+  );
+}
+
+PostTags.propTypes = {
+  tags: PropTypes.arrayOf(
+    PropTypes.string,
+  ).isRequired,
+};
+
 export default function PostLink({ post }: IPostLink) {
-  const { date, image, title, slug } = post;
+  const {
+    date, image, tags, title, slug,
+  } = post;
   const postUrl = `/post/${slug}`;
   const formattedDate = date.toLocaleDateString('en-US', {
     day: 'numeric',
@@ -43,10 +63,7 @@ export default function PostLink({ post }: IPostLink) {
 
           <h2 className="entry__title"><a href={postUrl}>{title}</a></h2>
           <div className="entry__meta">
-            <span className="entry__meta-cat">
-              <a href="category.html">Design</a>
-              <a href="category.html">Photography</a>
-            </span>
+            {tags && <PostTags tags={tags} />}
             <span className="entry__meta-date">
               <a href={postUrl}>{formattedDate}</a>
             </span>

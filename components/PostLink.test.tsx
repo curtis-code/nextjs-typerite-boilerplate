@@ -31,22 +31,6 @@ describe('PostLink', () => {
       ).toHaveAttribute('href', `/post/${post.slug}`);
     });
 
-    it('renders Design tag', () => {
-      const designTag = screen.getByRole('link', {
-        name: 'Design',
-      });
-
-      expect(designTag).toBeInTheDocument();
-    });
-
-    it('renders Design tag href', () => {
-      const designTag = screen.getByRole('link', {
-        name: 'Design',
-      });
-
-      expect(designTag).toHaveAttribute('href', 'category.html');
-    });
-
     it('renders formatted date', () => {
       expect(
         screen.getByRole('link', {
@@ -67,6 +51,12 @@ describe('PostLink', () => {
       it('does not render thumbnail component', () => {
         expect(
           screen.queryByTestId('postthumbnail'),
+        ).toBeNull();
+      });
+
+      it('does not render tags component', () => {
+        expect(
+          screen.queryByTestId('tags'),
         ).toBeNull();
       });
     });
@@ -92,6 +82,47 @@ describe('PostLink', () => {
       expect(
         screen.getByRole('img'),
       ).toHaveAttribute('src', post.image);
+    });
+  });
+
+  describe('with tags', () => {
+    const postWithTags: Post = {
+      ...post,
+      tags: ['foo', 'bar', 'baz'],
+    };
+
+    beforeEach(() => {
+      render(<PostLink post={postWithTags} />);
+    });
+
+    it('does render tags component', () => {
+      expect(
+        screen.queryByTestId('tags'),
+      ).toBeTruthy();
+    });
+
+    it('renders first tag', () => {
+      expect(
+        screen.getByRole('link', {
+          name: 'foo',
+        }),
+      ).toHaveAttribute('href', '/tag/foo');
+    });
+
+    it('renders second tag', () => {
+      expect(
+        screen.getByRole('link', {
+          name: 'bar',
+        }),
+      ).toHaveAttribute('href', '/tag/bar');
+    });
+
+    it('does not render third tag', () => {
+      expect(
+        screen.queryByRole('link', {
+          name: 'baz',
+        }),
+      ).toBeNull();
     });
   });
 });
