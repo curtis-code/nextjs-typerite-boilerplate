@@ -120,17 +120,20 @@ const Home: NextPage = function () {
               <div className="grid-sizer" />
               <PostLink post={{
                 date: new Date('2021-04-10 11:36'),
+                description: 'Lorem ipsum Sed eiusmod esse aliqua mollit id et sit proident dolor nulla sed',
                 image: '/images/thumbs/masonry/woodcraft-600.jpg',
                 tags: ['foo', 'bar'],
                 title: 'Post title',
                 slug: 'post-title',
-              }} />
+              }}
+              />
 
               <PostLink post={{
                 date: new Date('2021-02-03 11:35'),
                 title: 'Post title',
                 slug: 'post-title',
-              }} />
+              }}
+              />
 
               <article className="masonry__brick entry format-quote animate-this">
 

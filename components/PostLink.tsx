@@ -2,19 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Post } from '../types/Post';
 
-interface IPostThumbnail {
-  post: Post
-}
-
-interface IPostTags {
-  tags: Array<string>
-}
-
-interface IPostLink {
-  post: Post
-}
-
-function PostThumbnail({ post }: IPostThumbnail) {
+function PostThumbnail({ post }: { post: Post }) {
   return (
     <div className="entry__thumb" data-testid="postthumbnail">
       <a href={`/post/${post.slug}`} className="entry__thumb-link" data-testid="postthumbnail-link">
@@ -28,7 +16,7 @@ function PostThumbnail({ post }: IPostThumbnail) {
   );
 }
 
-function PostTags({ tags }: IPostTags) {
+function PostTags({ tags }: { tags: Array<string> }) {
   return (
     <span className="entry__meta-cat" data-testid="tags">
       {tags.slice(0, 2).map((tag) => <a key={tag} href={`/tag/${tag}`}>{tag}</a>)}
@@ -42,9 +30,19 @@ PostTags.propTypes = {
   ).isRequired,
 };
 
-export default function PostLink({ post }: IPostLink) {
+function PostDescription({ description }: { description: string }) {
+  return (
+    <div className="entry__excerpt" data-testid="description">
+      <p>
+        {description}
+      </p>
+    </div>
+  );
+}
+
+export default function PostLink({ post }: { post: Post }) {
   const {
-    date, image, tags, title, slug,
+    date, description, image, tags, title, slug,
   } = post;
   const postUrl = `/post/${slug}`;
   const formattedDate = date.toLocaleDateString('en-US', {
@@ -70,13 +68,7 @@ export default function PostLink({ post }: IPostLink) {
           </div>
 
         </div>
-        <div className="entry__excerpt">
-          <p>
-            Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua
-            incididunt mollit id et sit proident dolor nulla sed commodo est
-            ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-          </p>
-        </div>
+        {description && <PostDescription description={description} />}
       </div>
 
     </article>

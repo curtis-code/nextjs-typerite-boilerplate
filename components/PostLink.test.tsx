@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { within } from '@testing-library/dom'
 import PostLink from './PostLink';
 import { Post } from '../types/Post';
 
@@ -57,6 +58,12 @@ describe('PostLink', () => {
       it('does not render tags component', () => {
         expect(
           screen.queryByTestId('tags'),
+        ).toBeNull();
+      });
+
+      it('does not description component', () => {
+        expect(
+          screen.queryByTestId('description'),
         ).toBeNull();
       });
     });
@@ -129,6 +136,31 @@ describe('PostLink', () => {
           name: 'baz',
         }),
       ).toBeNull();
+    });
+  });
+
+  describe('with description', () => {
+    const postWithDescription: Post = {
+      ...post,
+      description: 'lorem ipsum',
+    };
+
+    beforeEach(() => {
+      render(<PostLink post={postWithDescription} />);
+    });
+
+    it('does render description component', () => {
+      expect(
+        screen.queryByTestId('description'),
+      ).toBeTruthy();
+    });
+
+    it('renders description text', () => {
+      expect(
+        within(
+          screen.getByTestId('description'),
+        ).getByText(postWithDescription.description || ''),
+      ).toBeTruthy();
     });
   });
 });
