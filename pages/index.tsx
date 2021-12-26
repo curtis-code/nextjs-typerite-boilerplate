@@ -12,7 +12,7 @@ import PostLink from '../components/PostLink';
 import { Post } from '../types/Post';
 
 // eslint-disable-next-line react/function-component-definition
-const Home: NextPage = function ({ posts }: { posts: Array<Post> }) {
+const Home: NextPage<{ posts: Array<Post> }> = function ({ posts }: { posts: Array<Post> }) {
   return (
     <>
       <Head>
