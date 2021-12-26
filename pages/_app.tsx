@@ -3,8 +3,8 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
 import Head from 'next/head';
-import Search from '../components/Search';
 import Link from 'next/link';
+import Search from '../components/Search';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -50,9 +50,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           </div>
 
           <nav className="header__nav-wrap">
-
             <ul className="header__nav">
-              <li className="current"><a href="index.html" title="">Home</a></li>
+              <li className="current"><Link href="/">Home</Link></li>
               <li className="has-children">
                 <a href="#0" title="">Categories</a>
                 <ul className="sub-menu">
@@ -110,7 +109,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         </header>
 
         <Search />
-
         <Component {...pageProps} />
 
         <footer className="s-footer">
@@ -133,7 +131,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       </div>
 
-      <Component {...pageProps} />
       <Script type="text/javascript" src="/js/bundle.js" />
     </>
   );

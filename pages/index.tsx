@@ -2,12 +2,9 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import type { NextPage } from 'next';
-import Head from 'next/head';
-import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import Search from '../components/Search';
 import PostLink from '../components/PostLink';
 import { Post } from '../types/Post';
 
