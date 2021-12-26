@@ -11,8 +11,12 @@ import Search from '../components/Search';
 import PostLink from '../components/PostLink';
 import { Post } from '../types/Post';
 
+interface IHome {
+  posts: Array<Post>
+}
+
 // eslint-disable-next-line react/function-component-definition
-const Home: NextPage<{ posts: Array<Post> }> = function ({ posts }: { posts: Array<Post> }) {
+const Home: NextPage<IHome> = function ({ posts }: IHome) {
   return (
     <>
       <Head>
