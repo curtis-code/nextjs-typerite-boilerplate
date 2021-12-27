@@ -26,7 +26,7 @@ const Home: NextPage<IHome> = function ({ posts }: IHome) {
 
       <div className="row">
         <div className="column large-full">
-          <Pagination />
+          <Pagination currentPage={1} pageCount={8} />
         </div>
       </div>
 
