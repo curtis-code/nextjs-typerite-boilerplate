@@ -1,4 +1,5 @@
 import React from 'react';
+import pager from 'split-page-numbers';
 
 interface IPageLink {
   isCurrentPage?: boolean;
@@ -25,18 +26,23 @@ PageLink.defaultProps = {
 
 export default function Pagination({ currentPage, pageCount }: IPagination) {
   const isLastPage = currentPage === pageCount;
+  const pages = pager(pageCount, currentPage - 1, {
+    target: 4,
+    neighbours: {
+      edge: 1,
+      current: 1,
+    },
+  });
 
   return (
     <nav className="pgn">
       <ul>
         {currentPage > 1 && <li><a className="pgn__prev" href="#0">Prev</a></li>}
-        <PageLink pageNumber={1} />
-        <PageLink pageNumber={2} isCurrentPage />
-        <PageLink pageNumber={3} />
-        <PageLink pageNumber={4} />
-        <PageLink pageNumber={5} />
-        <li><span className="pgn__num dots">…</span></li>
-        <PageLink pageNumber={8} />
+        {pages.map((page) => (
+          page.isNumber()
+            ? <PageLink pageNumber={page.asNumber().value + 1} isCurrentPage={page.isCurrent} />
+            : <li><span className="pgn__num dots">…</span></li>
+        ))}
         {!isLastPage && <li><a className="pgn__next" href="#0">Next</a></li>}
       </ul>
     </nav>
