@@ -40,8 +40,14 @@ export default function Pagination({ currentPage, pageCount }: IPagination) {
         {currentPage > 1 && <li><a className="pgn__prev" href="#0">Prev</a></li>}
         {pages.map((page) => (
           page.isNumber()
-            ? <PageLink pageNumber={page.asNumber().value + 1} isCurrentPage={page.isCurrent} />
-            : <li><span className="pgn__num dots">…</span></li>
+            ? (
+              <PageLink
+                key={page.key}
+                pageNumber={page.asNumber().value + 1}
+                isCurrentPage={page.isCurrent}
+              />
+            )
+            : <li key={page.key}><span className="pgn__num dots">…</span></li>
         ))}
         {!isLastPage && <li><a className="pgn__next" href="#0">Next</a></li>}
       </ul>

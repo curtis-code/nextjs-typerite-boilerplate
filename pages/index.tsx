@@ -1,12 +1,10 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import type { NextPage } from 'next';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
 import PostLink from '../components/PostLink';
 import { Post } from '../types/Post';
 import Pagination from '../components/Pagination';
+import { getPosts } from '../util/getPosts';
 
 interface IHome {
   posts: Array<Post>
@@ -37,41 +35,9 @@ const Home: NextPage<IHome> = function ({ posts }: IHome) {
 export default Home;
 
 export async function getStaticProps() {
-  const files = fs.readdirSync(path.join('posts'));
-
-  const posts: Array<Post> = files.map((filename) => {
-    const markdownWithMeta = fs.readFileSync(
-      path.join('posts', filename),
-      'utf-8',
-    );
-
-    const {
-      data: {
-        date,
-        description,
-        image,
-        title,
-        slug,
-        tags,
-      },
-    } = matter(markdownWithMeta);
-
-    const post: Post = {
-      date: new Date(date),
-      description,
-      title,
-      slug,
-      tags,
-    };
-
-    if (image) post.image = image;
-
-    return post;
-  });
+  const posts: Array<Post> = getPosts();
 
   return {
-    props: {
-      posts: posts.sort((a, b) => b.date.getTime() - a.date.getTime()),
-    },
+    props: { posts },
   };
 }
