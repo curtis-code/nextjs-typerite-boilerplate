@@ -1,12 +1,11 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import type { NextPage } from 'next';
-import PostLink from '../components/PostLink';
 import { Post } from '../types/Post';
-import Pagination from '../components/Pagination';
 import { getPosts } from '../util/getPosts';
 import { config } from '../config';
 import { filterPostsByPage } from '../util/filterPostsByPage';
+import Posts from '../components/Posts';
 
 interface IHome {
   pageCount: number;
@@ -16,22 +15,7 @@ interface IHome {
 // eslint-disable-next-line react/function-component-definition
 const Home: NextPage<IHome> = function ({ pageCount, posts }: IHome) {
   return (
-    <div className="s-content">
-      <div className="masonry-wrap">
-        <div className="masonry">
-          <div className="grid-sizer" />
-          {posts.map((post) => <PostLink key={post.title} post={post} />)}
-        </div>
-
-      </div>
-
-      <div className="row">
-        <div className="column large-full">
-          <Pagination firstPagePath="/" currentPage={1} pageCount={pageCount} />
-        </div>
-      </div>
-
-    </div>
+    <Posts page={1} pageCount={pageCount} posts={posts} />
   );
 };
 
