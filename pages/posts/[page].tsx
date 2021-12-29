@@ -7,6 +7,7 @@ import Pagination from '../../components/Pagination';
 import { getPosts } from '../../util/getPosts';
 import { config } from '../../config';
 import { filterPostsByPage } from '../../util/filterPostsByPage';
+import { getPages } from '../../util/getPages';
 
 interface IPage {
   page: number;
@@ -42,16 +43,12 @@ export const getStaticPaths = async () => {
   const posts: Array<Post> = getPosts();
   const pageCount = Math.ceil(posts.length / config.postsPerPage);
 
-  const paths: Array<any> = [];
-  for (let i = 1; i <= pageCount; i += 1) {
-    const page = i;
-
-    paths.push({
-      params: {
-        page: page.toString(),
-      },
-    });
-  }
+  const pages = getPages({ pageCount, excludeFirstPage: true });
+  const paths = pages.map((page) => ({
+    params: {
+      page: page.toString(),
+    },
+  }));
 
   return {
     paths,
