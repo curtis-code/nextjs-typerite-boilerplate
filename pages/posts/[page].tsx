@@ -7,17 +7,23 @@ import { config } from '../../config';
 import { filterPostsByPage } from '../../util/filterPostsByPage';
 import { getPages } from '../../util/getPages';
 import Posts from '../../components/Posts';
+import AppLayout, { AppLayoutProps } from '../../components/AppLayout';
+import { getAppLayoutProps } from '../../util/getAppLayoutProps';
 
-interface IPage {
+interface PageProps extends AppLayoutProps {
   page: number;
   pageCount: number;
   posts: Array<Post>;
 }
 
 // eslint-disable-next-line react/function-component-definition
-const Page: NextPage<IPage> = function ({ page, pageCount, posts }: IPage) {
+const Page: NextPage<PageProps> = function ({
+  page, pageCount, posts, recentPosts,
+}: PageProps) {
   return (
-    <Posts page={page} pageCount={pageCount} posts={posts} />
+    <AppLayout recentPosts={recentPosts}>
+      <Posts page={page} pageCount={pageCount} posts={posts} />
+    </AppLayout>
   );
 };
 
@@ -49,9 +55,11 @@ interface IGetStaticProps {
 export async function getStaticProps({ params: { page } }: IGetStaticProps) {
   const posts: Array<Post> = getPosts();
   const pageCount = Math.ceil(posts.length / config.postsPerPage);
+  const appLayoutProps = getAppLayoutProps(posts);
 
   return {
     props: {
+      ...appLayoutProps,
       page: Number(page),
       pageCount,
       posts: filterPostsByPage(posts, config.postsPerPage, Number(page)),
