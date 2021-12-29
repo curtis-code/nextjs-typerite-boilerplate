@@ -7,6 +7,7 @@ import { config } from '../config';
 import { filterPostsByPage } from '../util/filterPostsByPage';
 import Posts from '../components/Posts';
 import AppLayout, { AppLayoutProps } from '../components/AppLayout';
+import { getAppLayoutProps } from '../util/getAppLayoutProps';
 
 interface HomeProps extends AppLayoutProps {
   pageCount: number;
@@ -27,12 +28,13 @@ export default Home;
 export async function getStaticProps() {
   const posts: Array<Post> = getPosts();
   const pageCount = Math.ceil(posts.length / config.postsPerPage);
+  const appLayoutProps = getAppLayoutProps(posts);
 
   return {
     props: {
+      ...appLayoutProps,
       pageCount,
       posts: filterPostsByPage(posts, config.postsPerPage, 1),
-      recentPosts: posts.slice(0, 5),
     },
   };
 }
