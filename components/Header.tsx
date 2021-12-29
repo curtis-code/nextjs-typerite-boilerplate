@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import React from 'react';
+import { Post } from '../types/Post';
 
-export default function Header() {
+interface HeaderProps {
+  recentPosts: Array<Post>;
+}
+
+export default function Header({ recentPosts }: HeaderProps) {
   return (
     <header className="s-header">
 
@@ -30,12 +35,11 @@ export default function Header() {
             </ul>
           </li>
           <li className="has-children">
-            <a href="#0" title="">Blog Posts</a>
+            <a href="/" title="">Recent Posts</a>
             <ul className="sub-menu">
-              <li><a href="single-video.html">Video Post</a></li>
-              <li><a href="single-audio.html">Audio Post</a></li>
-              <li><a href="single-gallery.html">Gallery Post</a></li>
-              <li><a href="single-standard.html">Standard Post</a></li>
+              {recentPosts.map((post) => (
+                <li key={post.slug}><a href={`/post/${post.slug}`}>{post.title}</a></li>
+              ))}
             </ul>
           </li>
           <li><a href="styles.html" title="">Styles</a></li>

@@ -6,16 +6,19 @@ import { getPosts } from '../util/getPosts';
 import { config } from '../config';
 import { filterPostsByPage } from '../util/filterPostsByPage';
 import Posts from '../components/Posts';
+import AppLayout, { AppLayoutProps } from '../components/AppLayout';
 
-interface IHome {
+interface HomeProps extends AppLayoutProps {
   pageCount: number;
   posts: Array<Post>;
 }
 
 // eslint-disable-next-line react/function-component-definition
-const Home: NextPage<IHome> = function ({ pageCount, posts }: IHome) {
+const Home: NextPage<HomeProps> = function ({ pageCount, posts, recentPosts }: HomeProps) {
   return (
-    <Posts page={1} pageCount={pageCount} posts={posts} />
+    <AppLayout recentPosts={recentPosts}>
+      <Posts page={1} pageCount={pageCount} posts={posts} />
+    </AppLayout>
   );
 };
 
@@ -29,6 +32,7 @@ export async function getStaticProps() {
     props: {
       pageCount,
       posts: filterPostsByPage(posts, config.postsPerPage, 1),
+      recentPosts: posts.slice(0, 5),
     },
   };
 }
