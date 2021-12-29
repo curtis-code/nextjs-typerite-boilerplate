@@ -1,5 +1,5 @@
 {
-  "name": "curtiscode",
+  "name": "nextjs-typerite-boilerplate",
   "private": true,
   "scripts": {
     "dev": "next dev",
