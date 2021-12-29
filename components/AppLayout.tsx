@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react';
 import { Post } from '../types/Post';
 import Header from './Header';
