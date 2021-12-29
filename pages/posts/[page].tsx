@@ -29,7 +29,7 @@ const Page: NextPage<IPage> = function ({ page, pageCount, posts }: IPage) {
 
       <div className="row">
         <div className="column large-full">
-          <Pagination currentPage={page} pageCount={pageCount} />
+          <Pagination firstPagePath="/" currentPage={page} pageCount={pageCount} />
         </div>
       </div>
 

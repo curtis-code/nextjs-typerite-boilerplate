@@ -27,7 +27,7 @@ const Home: NextPage<IHome> = function ({ pageCount, posts }: IHome) {
 
       <div className="row">
         <div className="column large-full">
-          <Pagination currentPage={1} pageCount={pageCount} />
+          <Pagination firstPagePath="/" currentPage={1} pageCount={pageCount} />
         </div>
       </div>
 

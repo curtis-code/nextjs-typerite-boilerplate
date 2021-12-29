@@ -3,9 +3,11 @@ import { render, screen } from '@testing-library/react';
 import Pagination from './Pagination';
 
 describe('Pagination', () => {
+  const firstPagePath: string = '/foo';
+
   describe('currentPage = first page', () => {
     beforeEach(() => {
-      render(<Pagination currentPage={1} pageCount={10} />);
+      render(<Pagination firstPagePath={firstPagePath} currentPage={1} pageCount={10} />);
     });
 
     it('does not render a previous page link', () => {
@@ -23,7 +25,7 @@ describe('Pagination', () => {
 
   describe('currentPage = last page', () => {
     beforeEach(() => {
-      render(<Pagination currentPage={10} pageCount={10} />);
+      render(<Pagination firstPagePath={firstPagePath} currentPage={10} pageCount={10} />);
     });
 
     it('does render a previous page link', () => {
