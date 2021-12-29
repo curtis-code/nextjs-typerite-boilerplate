@@ -19,9 +19,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <link rel="stylesheet" href="css/base.css" />
-        <link rel="stylesheet" href="css/vendor.css" />
-        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="/css/base.css" />
+        <link rel="stylesheet" href="/css/vendor.css" />
+        <link rel="stylesheet" href="/css/main.css" />
 
         <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <div className="header__logo">
               <Link href="/">
                 <a className="site-logo">
-                  <img src="images/logo.svg" alt="Homepage" />
+                  <img src="/images/logo.svg" alt="Homepage" />
                 </a>
               </Link>
             </div>
