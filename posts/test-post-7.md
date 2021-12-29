@@ -3,7 +3,7 @@ description: "Lorem ipsum Sed eiusmod esse aliqua mollit id et sit proident dolo
 date: "2020-01-19T00:00:00"
 title: What Your Music Preference Says About You and Your Personality.
 slug: post-slug-7
-image: images/thumbs/masonry/guitarist-600.jpg
+image: /images/thumbs/masonry/guitarist-600.jpg
 ---
 Test content 7
 
