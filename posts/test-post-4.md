@@ -1,5 +1,5 @@
 ---
-tags: ["foo", "bar", "baz"]
+tags: ["lifestyle", "health"]
 description: "Lorem ipsum Sed eiusmod esse aliqua mollit id et sit proident dolor nulla sed"
 date: "2018-05-03T00:00:00"
 title: "Post title here 4"
