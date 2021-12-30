@@ -7,11 +7,26 @@ interface IPosts {
   posts: Array<Post>;
   page: number;
   pageCount: number;
+  tag?: string;
 }
 
-export default function Posts({ posts, page, pageCount }: IPosts) {
+function TagHeader({ tag }: { tag: string }) {
+  return (
+    <header className="listing-header">
+      <h1 className="h2">
+        Category:
+        {' '}
+        {tag}
+      </h1>
+    </header>
+  );
+}
+export default function Posts({
+  posts, page, pageCount, tag,
+}: IPosts) {
   return (
     <div className="s-content">
+      {tag && <TagHeader tag={tag} />}
       <div className="masonry-wrap">
         <div className="masonry">
           <div className="grid-sizer" />
@@ -29,3 +44,7 @@ export default function Posts({ posts, page, pageCount }: IPosts) {
     </div>
   );
 }
+
+Posts.defaultProps = {
+  tag: null,
+};
