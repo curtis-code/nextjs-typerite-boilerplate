@@ -37,7 +37,7 @@ export default function Posts({
 
       <div className="row">
         <div className="column large-full">
-          <Pagination firstPagePath="/" currentPage={page} pageCount={pageCount} />
+          <Pagination currentPage={page} pageCount={pageCount} tag={tag} />
         </div>
       </div>
 
