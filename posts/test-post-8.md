@@ -1,5 +1,5 @@
 ---
-tags: ["foo"]
+tags: ["lifestyle"]
 date: "2020-02-01T00:00:00"
 title: Throwback To The Good Old Days.
 slug: post-slug-8

@@ -1,5 +1,5 @@
 ---
-tags: ["foo", "bar"]
+tags: ["lifestyle", "health"]
 date: "2020-02-03T00:00:00"
 description: "Lorem ipsum Sed eiusmod esse aliqua mollit id et sit proident dolor nulla sed"
 title: Using Repetition and Patterns in Photography.

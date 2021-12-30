@@ -1,5 +1,5 @@
 ---
-tags: ["foo", "bar", "baz"]
+tags: ["travel", "work", "lifestyle"]
 description: "Lorem ipsum Sed eiusmod esse aliqua mollit id et sit proident dolor nulla sed"
 date: "2017-02-04T00:00:00"
 title: "Post title here 3"
