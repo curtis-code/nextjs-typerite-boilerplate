@@ -9,6 +9,7 @@ import Posts from '../../components/Posts';
 import AppLayout, { AppLayoutProps } from '../../components/AppLayout';
 import { getAppLayoutProps } from '../../util/getAppLayoutProps';
 import { getTopTags } from '../../util/getTopTags';
+import { filterPostsByTag } from '../../util/filterPostsByTag';
 
 interface PageProps extends AppLayoutProps {
   tag: string;
@@ -31,7 +32,6 @@ export default Page;
 
 export const getStaticPaths = async () => {
   const posts: Array<Post> = getPosts();
-  // const pageCount = Math.ceil(posts.length / config.postsPerPage);
 
   const tags = getTopTags(posts);
   const paths = tags.map((tag) => ({
@@ -53,7 +53,7 @@ interface IGetStaticProps {
 }
 
 export async function getStaticProps({ params: { tag } }: IGetStaticProps) {
-  const posts: Array<Post> = getPosts();
+  const posts: Array<Post> = filterPostsByTag(getPosts(), tag);
   const pageCount = Math.ceil(posts.length / config.postsPerPage);
   const appLayoutProps = getAppLayoutProps(posts);
 
