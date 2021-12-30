@@ -9,8 +9,9 @@ describe('getTopTags', () => {
   it('should return tags with correct count', () => {
     const basePost: Post = { title: 'title', date: new Date('2022-01-01'), slug: 'slug' };
     const posts: Array<Post> = [
+      { ...basePost, tags: ['bar'] },
       { ...basePost, tags: ['foo'] },
-      { ...basePost, tags: ['foo', 'bar'] },
+      { ...basePost, tags: ['foo'] },
       { ...basePost, tags: ['foo', 'bar', 'baz'] },
       { ...basePost, tags: ['foo', 'bar', 'baz', 'qux'] },
       { ...basePost, tags: ['foo', 'bar', 'baz', 'qux', 'quux'] },

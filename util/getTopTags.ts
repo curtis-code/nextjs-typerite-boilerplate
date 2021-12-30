@@ -1,9 +1,5 @@
 import { Post } from '../types/Post';
-
-interface Tag {
-  name: string;
-  count: number;
-}
+import { Tag } from '../types/Tag';
 
 export function getTopTags(posts: Array<Post>): Array<Tag> {
   const tags = posts.reduce((acc: any, current: Post) => {
@@ -21,5 +17,6 @@ export function getTopTags(posts: Array<Post>): Array<Tag> {
     .map(([name, count]) => ({
       name,
       count: Number(count),
-    }));
+    }))
+    .sort((a, b) => b.count - a.count);
 }

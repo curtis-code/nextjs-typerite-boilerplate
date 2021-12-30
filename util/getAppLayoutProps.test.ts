@@ -3,8 +3,12 @@ import { getAppLayoutProps } from './getAppLayoutProps';
 
 describe('getAppLayoutProps', () => {
   const posts: Array<Post> = [
-    { title: 'a', date: new Date('2021-01-30'), slug: 'a' },
-    { title: 'b', date: new Date('2021-01-29'), slug: 'b' },
+    {
+      title: 'a', date: new Date('2021-01-30'), slug: 'a', tags: ['foo'],
+    },
+    {
+      title: 'b', date: new Date('2021-01-29'), slug: 'b', tags: ['foo', 'bar'],
+    },
     { title: 'c', date: new Date('2021-01-28'), slug: 'c' },
     { title: 'd', date: new Date('2021-01-27'), slug: 'd' },
     { title: 'e', date: new Date('2021-01-26'), slug: 'e' },
@@ -23,11 +27,22 @@ describe('getAppLayoutProps', () => {
 
   it('should include recent posts', () => {
     expect(appLayoutProps.recentPosts).toEqual([
-      { title: 'a', date: new Date('2021-01-30'), slug: 'a' },
-      { title: 'b', date: new Date('2021-01-29'), slug: 'b' },
+      {
+        title: 'a', date: new Date('2021-01-30'), slug: 'a', tags: ['foo'],
+      },
+      {
+        title: 'b', date: new Date('2021-01-29'), slug: 'b', tags: ['foo', 'bar'],
+      },
       { title: 'c', date: new Date('2021-01-28'), slug: 'c' },
       { title: 'd', date: new Date('2021-01-27'), slug: 'd' },
       { title: 'e', date: new Date('2021-01-26'), slug: 'e' },
+    ]);
+  });
+
+  it('should include top tags', () => {
+    expect(appLayoutProps.topTags).toEqual([
+      { name: 'foo', count: 2 },
+      { name: 'bar', count: 1 },
     ]);
   });
 });

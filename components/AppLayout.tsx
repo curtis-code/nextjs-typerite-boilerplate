@@ -2,21 +2,23 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react';
 import { Post } from '../types/Post';
+import { Tag } from '../types/Tag';
 import Header from './Header';
 import Search from './Search';
 
 export interface AppLayoutProps {
   recentPosts: Array<Post>;
+  topTags: Array<Tag>;
 }
 
 interface IAppLayout extends AppLayoutProps {
   children: any;
 }
 
-export default function AppLayout({ recentPosts, children }: IAppLayout) {
+export default function AppLayout({ recentPosts, topTags, children }: IAppLayout) {
   return (
     <>
-      <Header recentPosts={recentPosts} />
+      <Header recentPosts={recentPosts} topTags={topTags} />
       <Search />
       {children}
 

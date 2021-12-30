@@ -15,9 +15,11 @@ interface HomeProps extends AppLayoutProps {
 }
 
 // eslint-disable-next-line react/function-component-definition
-const Home: NextPage<HomeProps> = function ({ pageCount, posts, recentPosts }: HomeProps) {
+const Home: NextPage<HomeProps> = function ({
+  pageCount, posts, recentPosts, topTags,
+}: HomeProps) {
   return (
-    <AppLayout recentPosts={recentPosts}>
+    <AppLayout recentPosts={recentPosts} topTags={topTags}>
       <Posts page={1} pageCount={pageCount} posts={posts} />
     </AppLayout>
   );
