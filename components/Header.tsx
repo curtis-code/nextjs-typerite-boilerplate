@@ -1,38 +1,34 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import Link from 'next/link';
 import React from 'react';
 import { Post } from '../types/Post';
+import { Tag } from '../types/Tag';
 
 interface HeaderProps {
   recentPosts: Array<Post>;
+  topTags: Array<Tag>;
 }
 
-export default function Header({ recentPosts }: HeaderProps) {
+export default function Header({ recentPosts, topTags }: HeaderProps) {
   return (
     <header className="s-header">
 
       <div className="header__top">
         <div className="header__logo">
-          <Link href="/">
-            <a className="site-logo">
-              <img src="/images/logo.svg" alt="Homepage" />
-            </a>
-          </Link>
+          <a href="/" className="site-logo">
+            <img src="/images/logo.svg" alt="Homepage" />
+          </a>
         </div>
       </div>
 
       <nav className="header__nav-wrap">
         <ul className="header__nav">
-          <li className="current"><Link href="/">Home</Link></li>
+          <li className="current"><a href="/">Home</a></li>
           <li className="has-children">
-            <a href="#0" title="">Categories</a>
+            <a href="/" title="">Categories</a>
             <ul className="sub-menu">
-              <li><a href="category.html">Lifestyle</a></li>
-              <li><a href="category.html">Health</a></li>
-              <li><a href="category.html">Family</a></li>
-              <li><a href="category.html">Management</a></li>
-              <li><a href="category.html">Travel</a></li>
-              <li><a href="category.html">Work</a></li>
+              {topTags.map((tag) => (
+                <li key={tag.name}><a href={`/tag/${tag.name}`}>{tag.name}</a></li>
+              ))}
             </ul>
           </li>
           <li className="has-children">

@@ -18,10 +18,10 @@ interface PageProps extends AppLayoutProps {
 
 // eslint-disable-next-line react/function-component-definition
 const Page: NextPage<PageProps> = function ({
-  page, pageCount, posts, recentPosts,
+  page, pageCount, posts, recentPosts, topTags,
 }: PageProps) {
   return (
-    <AppLayout recentPosts={recentPosts}>
+    <AppLayout recentPosts={recentPosts} topTags={topTags}>
       <Posts page={page} pageCount={pageCount} posts={posts} />
     </AppLayout>
   );
