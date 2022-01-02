@@ -6,6 +6,25 @@ import { getPosts } from '../../util/getPosts';
 import AppLayout, { AppLayoutProps } from '../../components/AppLayout';
 import { getAppLayoutProps } from '../../util/getAppLayoutProps';
 
+function HeaderPostTags({ tags }: { tags: Array<string> }) {
+  return (
+    <li className="cat-links">
+      {tags.slice(0, 2).map((tag) => <a href={`/tag/${tag}`}>{tag}</a>)}
+    </li>
+  );
+}
+
+function FooterPostTags({ tags }: { tags: Array<string> }) {
+  return (
+    <p className="entry__tags">
+      <span>Post Tags</span>
+      <span className="entry__tag-list">
+        {tags.map((tag) => <a href={`/tag/${tag}`}>{tag}</a>)}
+      </span>
+    </p>
+  );
+}
+
 interface PageProps extends AppLayoutProps {
   post: Post
 }
@@ -43,10 +62,7 @@ const Page: NextPage<PageProps> = function ({ post, recentPosts, topTags }: Page
                   <a href="#0">Jonathan Doe</a>
                 </li>
                 <li className="date">April 30, 2019</li>
-                <li className="cat-links">
-                  <a href="#0">Marketing</a>
-                  <a href="#0">Management</a>
-                </li>
+                {post.tags && <HeaderPostTags tags={post.tags} />}
               </ul>
             </div>
 
@@ -152,17 +168,7 @@ const Page: NextPage<PageProps> = function ({ post, recentPosts, topTags }: Page
                 in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.
               </p>
 
-              <p className="entry__tags">
-                <span>Post Tags</span>
-
-                <span className="entry__tag-list">
-                  <a href="#0">orci</a>
-                  <a href="#0">lectus</a>
-                  <a href="#0">varius</a>
-                  <a href="#0">turpis</a>
-                </span>
-
-              </p>
+              {post.tags && <FooterPostTags tags={post.tags} />}
             </div>
 
             <div className="entry__pagenav">
