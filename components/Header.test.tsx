@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Header from './Header';
 import { Tag } from '../types/Tag';
+import { Post } from '../types/Post';
 
 describe('Header', () => {
   const recentPosts: Array<Post> = [
@@ -16,7 +17,7 @@ describe('Header', () => {
     { name: 'foo', count: 10 },
     { name: 'bar', count: 8 },
     { name: 'baz', count: 6 },
-  ]
+  ];
 
   beforeEach(() => {
     render(<Header recentPosts={recentPosts} topTags={topTags} />);
