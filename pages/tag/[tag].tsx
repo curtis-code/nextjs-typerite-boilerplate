@@ -4,26 +4,19 @@ import type { NextPage } from 'next';
 import { Post } from '../../types/Post';
 import { getPosts } from '../../util/getPosts';
 import { config } from '../../config';
-import { filterPostsByPage } from '../../util/filterPostsByPage';
 import Posts from '../../components/Posts';
-import AppLayout, { AppLayoutProps } from '../../components/AppLayout';
-import { getAppLayoutProps } from '../../util/getAppLayoutProps';
+import AppLayout from '../../components/AppLayout';
 import { getTopTags } from '../../util/getTopTags';
-import { filterPostsByTag } from '../../util/filterPostsByTag';
-
-interface PageProps extends AppLayoutProps {
-  tag: string;
-  pageCount: number;
-  posts: Array<Post>;
-}
+import { getStaticPropsForPosts } from '../../util/getStaticPropsForPosts';
+import { StaticPropsForPostsProps } from '../../types/StaticPropsForPosts';
 
 // eslint-disable-next-line react/function-component-definition
-const Page: NextPage<PageProps> = function ({
-  tag, pageCount, posts, recentPosts, topTags,
-}: PageProps) {
+const Page: NextPage<StaticPropsForPostsProps> = function ({
+  tag, pageCount, page, posts, recentPosts, topTags,
+}: StaticPropsForPostsProps) {
   return (
     <AppLayout recentPosts={recentPosts} topTags={topTags}>
-      <Posts page={1} pageCount={pageCount} posts={posts} tag={tag} />
+      <Posts page={page} pageCount={pageCount} posts={posts} tag={tag} />
     </AppLayout>
   );
 };
@@ -53,16 +46,8 @@ interface IGetStaticProps {
 }
 
 export async function getStaticProps({ params: { tag } }: IGetStaticProps) {
-  const posts: Array<Post> = filterPostsByTag(getPosts(), tag);
-  const pageCount = Math.ceil(posts.length / config.postsPerPage);
-  const appLayoutProps = getAppLayoutProps(posts);
-
-  return {
-    props: {
-      ...appLayoutProps,
-      tag,
-      pageCount,
-      posts: filterPostsByPage(posts, config.postsPerPage, 1),
-    },
-  };
+  return getStaticPropsForPosts({
+    postsPerPage: config.postsPerPage,
+    tag,
+  });
 }

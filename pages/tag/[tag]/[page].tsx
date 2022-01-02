@@ -4,25 +4,18 @@ import type { NextPage } from 'next';
 import { Post } from '../../../types/Post';
 import { getPosts } from '../../../util/getPosts';
 import { config } from '../../../config';
-import { filterPostsByPage } from '../../../util/filterPostsByPage';
 import { getPages } from '../../../util/getPages';
 import Posts from '../../../components/Posts';
-import AppLayout, { AppLayoutProps } from '../../../components/AppLayout';
-import { getAppLayoutProps } from '../../../util/getAppLayoutProps';
+import AppLayout from '../../../components/AppLayout';
 import { filterPostsByTag } from '../../../util/filterPostsByTag';
 import { getTopTags } from '../../../util/getTopTags';
-
-interface PageProps extends AppLayoutProps {
-  tag: string;
-  page: number;
-  pageCount: number;
-  posts: Array<Post>;
-}
+import { getStaticPropsForPosts } from '../../../util/getStaticPropsForPosts';
+import { StaticPropsForPostsProps } from '../../../types/StaticPropsForPosts';
 
 // eslint-disable-next-line react/function-component-definition
-const Page: NextPage<PageProps> = function ({
+const Page: NextPage<StaticPropsForPostsProps> = function ({
   tag, page, pageCount, posts, recentPosts, topTags,
-}: PageProps) {
+}: StaticPropsForPostsProps) {
   return (
     <AppLayout recentPosts={recentPosts} topTags={topTags}>
       <Posts page={page} pageCount={pageCount} posts={posts} tag={tag} />
@@ -67,17 +60,9 @@ interface IGetStaticProps {
 }
 
 export async function getStaticProps({ params: { tag, page } }: IGetStaticProps) {
-  const posts: Array<Post> = filterPostsByTag(getPosts(), tag);
-  const pageCount = Math.ceil(posts.length / config.postsPerPage);
-  const appLayoutProps = getAppLayoutProps(posts);
-
-  return {
-    props: {
-      ...appLayoutProps,
-      tag,
-      page: Number(page),
-      pageCount,
-      posts: filterPostsByPage(posts, config.postsPerPage, Number(page)),
-    },
-  };
+  return getStaticPropsForPosts({
+    postsPerPage: config.postsPerPage,
+    page: Number(page),
+    tag,
+  });
 }
