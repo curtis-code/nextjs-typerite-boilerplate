@@ -5,12 +5,12 @@ import * as getPosts from './getPosts';
 
 function generateTestPosts(): Array<Post> {
   const posts: Array<Post> = [];
-  for (let i = 1; i <= 100; i += 1) {
+  for (let i = 0; i < 50; i += 1) {
     const date: Date = new Date('2023-01-01');
     date.setDate(date.getDate() - i);
 
     const post: Post = {
-      title: i.toString(),
+      title: `title ${i}`,
       slug: i.toString(),
       date,
       tags: [],
@@ -37,6 +37,11 @@ describe('getStaticPropsForPosts', () => {
     testPosts[4],
   ];
 
+  const topTags = [
+    { name: 'bar', count: 37 },
+    { name: 'foo', count: 33 },
+  ];
+
   beforeAll(() => {
     const mockGetPosts = jest.spyOn(getPosts, 'getPosts');
     mockGetPosts.mockImplementation(() => testPosts);
@@ -45,11 +50,8 @@ describe('getStaticPropsForPosts', () => {
   describe('base', () => {
     const baseProps = {
       recentPosts,
-      topTags: [
-        { name: 'bar', count: 75 },
-        { name: 'foo', count: 67 },
-      ],
-      pageCount: 20,
+      topTags,
+      pageCount: 10,
     };
 
     describe('default / page 1', () => {
@@ -99,6 +101,71 @@ describe('getStaticPropsForPosts', () => {
               testPosts[7],
               testPosts[8],
               testPosts[9],
+            ],
+          },
+        });
+      });
+    });
+  });
+
+  describe('tags', () => {
+    const tag = 'foo';
+    const baseProps = {
+      recentPosts,
+      tag,
+      topTags,
+      pageCount: 7,
+    };
+
+    describe('tag "foo" / default page 1', () => {
+      let staticPropsForPosts: StaticPropsForPosts;
+
+      beforeAll(() => {
+        staticPropsForPosts = getStaticPropsForPosts({
+          tag,
+          postsPerPage: 5,
+        });
+      });
+
+      it('should return static props', () => {
+        expect(staticPropsForPosts).toEqual({
+          props: {
+            ...baseProps,
+            page: 1,
+            posts: [
+              testPosts[1],
+              testPosts[2],
+              testPosts[4],
+              testPosts[5],
+              testPosts[7],
+            ],
+          },
+        });
+      });
+    });
+
+    describe('tag "foo" page 2', () => {
+      let staticPropsForPosts: StaticPropsForPosts;
+
+      beforeAll(() => {
+        staticPropsForPosts = getStaticPropsForPosts({
+          tag,
+          page: 2,
+          postsPerPage: 5,
+        });
+      });
+
+      it('should return static props', () => {
+        expect(staticPropsForPosts).toEqual({
+          props: {
+            ...baseProps,
+            page: 2,
+            posts: [
+              testPosts[8],
+              testPosts[10],
+              testPosts[11],
+              testPosts[13],
+              testPosts[14],
             ],
           },
         });
