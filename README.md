@@ -1,4 +1,5 @@
 # Next.js Typerite Boilerplate
 
-[![App CI](https://github.com/curtistimson/nextjs-typerite-boilerplate/actions/workflows/app-ci.yml/badge.svg)](https://github.com/curtistimson/nextjs-typerite-boilerplate/actions/workflows/app-ci.yml)
+[![CI](https://github.com/curtistimson/nextjs-typerite-boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/curtistimson/nextjs-typerite-boilerplate/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/curtistimson/nextjs-typerite-boilerplate/branch/main/graph/badge.svg?token=GHHI3NUE8N)](https://codecov.io/gh/curtistimson/nextjs-typerite-boilerplate)
+
 
