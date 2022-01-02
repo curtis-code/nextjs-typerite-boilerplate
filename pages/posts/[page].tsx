@@ -6,19 +6,14 @@ import { getPosts } from '../../util/getPosts';
 import { config } from '../../config';
 import { getPages } from '../../util/getPages';
 import Posts from '../../components/Posts';
-import AppLayout, { AppLayoutProps } from '../../components/AppLayout';
+import AppLayout from '../../components/AppLayout';
 import { getStaticPropsForPosts } from '../../util/getStaticPropsForPosts';
-
-interface PageProps extends AppLayoutProps {
-  page: number;
-  pageCount: number;
-  posts: Array<Post>;
-}
+import { StaticPropsForPostsProps } from '../../types/StaticPropsForPosts';
 
 // eslint-disable-next-line react/function-component-definition
-const Page: NextPage<PageProps> = function ({
+const Page: NextPage<StaticPropsForPostsProps> = function ({
   page, pageCount, posts, recentPosts, topTags,
-}: PageProps) {
+}: StaticPropsForPostsProps) {
   return (
     <AppLayout recentPosts={recentPosts} topTags={topTags}>
       <Posts page={page} pageCount={pageCount} posts={posts} />
