@@ -3,5 +3,5 @@ interface IConfig {
 }
 
 export const config: IConfig = {
-  postsPerPage: 4,
+  postsPerPage: 14,
 };
