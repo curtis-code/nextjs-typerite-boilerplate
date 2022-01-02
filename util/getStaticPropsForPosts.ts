@@ -5,11 +5,12 @@ import { getAppLayoutProps } from './getAppLayoutProps';
 import { getPosts } from './getPosts';
 
 interface IGetStaticPropsForPosts {
+  page?: number;
   postsPerPage: number;
 }
 
 export function getStaticPropsForPosts(
-  { postsPerPage }: IGetStaticPropsForPosts,
+  { page = 1, postsPerPage }: IGetStaticPropsForPosts,
 ): StaticPropsForPosts {
   const posts: Array<Post> = getPosts();
   const pageCount = Math.ceil(posts.length / postsPerPage);
@@ -18,8 +19,9 @@ export function getStaticPropsForPosts(
   return {
     props: {
       ...appLayoutProps,
+      page,
       pageCount,
-      posts: filterPostsByPage(posts, postsPerPage, 1),
+      posts: filterPostsByPage(posts, postsPerPage, page),
     },
   };
 }

@@ -1,27 +1,19 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import type { NextPage } from 'next';
-import { Post } from '../types/Post';
-import { getPosts } from '../util/getPosts';
 import { config } from '../config';
-import { filterPostsByPage } from '../util/filterPostsByPage';
 import Posts from '../components/Posts';
-import AppLayout, { AppLayoutProps } from '../components/AppLayout';
-import { getAppLayoutProps } from '../util/getAppLayoutProps';
+import AppLayout from '../components/AppLayout';
 import { getStaticPropsForPosts } from '../util/getStaticPropsForPosts';
-
-interface HomeProps extends AppLayoutProps {
-  pageCount: number;
-  posts: Array<Post>;
-}
+import { StaticPropsForPostsProps } from '../types/StaticPropsForPosts';
 
 // eslint-disable-next-line react/function-component-definition
-const Home: NextPage<HomeProps> = function ({
-  pageCount, posts, recentPosts, topTags,
-}: HomeProps) {
+const Home: NextPage<StaticPropsForPostsProps> = function ({
+  pageCount, posts, recentPosts, topTags, page,
+}: StaticPropsForPostsProps) {
   return (
     <AppLayout recentPosts={recentPosts} topTags={topTags}>
-      <Posts page={1} pageCount={pageCount} posts={posts} />
+      <Posts page={page} pageCount={pageCount} posts={posts} />
     </AppLayout>
   );
 };

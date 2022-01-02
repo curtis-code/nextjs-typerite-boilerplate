@@ -4,11 +4,10 @@ import type { NextPage } from 'next';
 import { Post } from '../../types/Post';
 import { getPosts } from '../../util/getPosts';
 import { config } from '../../config';
-import { filterPostsByPage } from '../../util/filterPostsByPage';
 import { getPages } from '../../util/getPages';
 import Posts from '../../components/Posts';
 import AppLayout, { AppLayoutProps } from '../../components/AppLayout';
-import { getAppLayoutProps } from '../../util/getAppLayoutProps';
+import { getStaticPropsForPosts } from '../../util/getStaticPropsForPosts';
 
 interface PageProps extends AppLayoutProps {
   page: number;
@@ -53,16 +52,8 @@ interface IGetStaticProps {
 }
 
 export async function getStaticProps({ params: { page } }: IGetStaticProps) {
-  const posts: Array<Post> = getPosts();
-  const pageCount = Math.ceil(posts.length / config.postsPerPage);
-  const appLayoutProps = getAppLayoutProps(posts);
-
-  return {
-    props: {
-      ...appLayoutProps,
-      page: Number(page),
-      pageCount,
-      posts: filterPostsByPage(posts, config.postsPerPage, Number(page)),
-    },
-  };
+  return getStaticPropsForPosts({
+    page: Number(page),
+    postsPerPage: config.postsPerPage,
+  });
 }

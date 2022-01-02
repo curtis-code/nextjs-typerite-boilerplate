@@ -1,7 +1,8 @@
 import { AppLayoutProps } from '../components/AppLayout';
 import { Post } from './Post';
 
-interface StaticPropsForPostsProps extends AppLayoutProps {
+export interface StaticPropsForPostsProps extends AppLayoutProps {
+  page: number;
   pageCount: number;
   posts: Array<Post>;
 }

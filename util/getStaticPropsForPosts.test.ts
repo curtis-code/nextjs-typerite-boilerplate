@@ -37,35 +37,71 @@ describe('getStaticPropsForPosts', () => {
     testPosts[4],
   ];
 
+  beforeAll(() => {
+    const mockGetPosts = jest.spyOn(getPosts, 'getPosts');
+    mockGetPosts.mockImplementation(() => testPosts);
+  });
+
   describe('base', () => {
-    let staticPropsForPosts: StaticPropsForPosts;
+    const baseProps = {
+      recentPosts,
+      topTags: [
+        { name: 'bar', count: 75 },
+        { name: 'foo', count: 67 },
+      ],
+      pageCount: 20,
+    };
 
-    beforeAll(() => {
-      const mockGetPosts = jest.spyOn(getPosts, 'getPosts');
-      mockGetPosts.mockImplementationOnce(generateTestPosts);
+    describe('default / page 1', () => {
+      let staticPropsForPosts: StaticPropsForPosts;
 
-      staticPropsForPosts = getStaticPropsForPosts({
-        postsPerPage: 5,
+      beforeAll(() => {
+        staticPropsForPosts = getStaticPropsForPosts({
+          postsPerPage: 5,
+        });
+      });
+
+      it('should return static props', () => {
+        expect(staticPropsForPosts).toEqual({
+          props: {
+            ...baseProps,
+            page: 1,
+            posts: [
+              testPosts[0],
+              testPosts[1],
+              testPosts[2],
+              testPosts[3],
+              testPosts[4],
+            ],
+          },
+        });
       });
     });
 
-    it('should return static props', () => {
-      expect(staticPropsForPosts).toEqual({
-        props: {
-          recentPosts,
-          topTags: [
-            { name: 'bar', count: 75 },
-            { name: 'foo', count: 67 },
-          ],
-          pageCount: 20,
-          posts: [
-            testPosts[0],
-            testPosts[1],
-            testPosts[2],
-            testPosts[3],
-            testPosts[4],
-          ],
-        },
+    describe('page 2', () => {
+      let staticPropsForPosts: StaticPropsForPosts;
+
+      beforeAll(() => {
+        staticPropsForPosts = getStaticPropsForPosts({
+          page: 2,
+          postsPerPage: 5,
+        });
+      });
+
+      it('should return static props', () => {
+        expect(staticPropsForPosts).toEqual({
+          props: {
+            ...baseProps,
+            page: 2,
+            posts: [
+              testPosts[5],
+              testPosts[6],
+              testPosts[7],
+              testPosts[8],
+              testPosts[9],
+            ],
+          },
+        });
       });
     });
   });
