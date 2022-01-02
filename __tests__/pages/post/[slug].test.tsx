@@ -40,6 +40,8 @@ describe('[slug]', () => {
       const post = testPosts.find((p) => p.slug === slug)
       expect(staticProps).toEqual({
         props: {
+          recentPosts: expect.any(Array),
+          topTags: expect.any(Array),
           post,
         },
       });
