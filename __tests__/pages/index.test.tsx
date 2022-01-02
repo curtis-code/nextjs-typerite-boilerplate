@@ -1,6 +1,6 @@
-import { getStaticProps } from '.';
-import { config } from '../config';
-import * as getStaticPropsForPosts from '../util/getStaticPropsForPosts';
+import { getStaticProps } from '../../pages/index';
+import { config } from '../../config';
+import * as getStaticPropsForPosts from '../../util/getStaticPropsForPosts';
 
 describe('index', () => {
   describe('getStaticProps', () => {
