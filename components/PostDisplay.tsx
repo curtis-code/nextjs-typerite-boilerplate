@@ -201,11 +201,8 @@ export default function PostDisplay({ post }: { post: Post }) {
               </li>
             </ul>
           </div>
-
         </article>
-
       </main>
-
     </div>
   );
 }
