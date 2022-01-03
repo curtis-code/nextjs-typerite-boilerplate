@@ -37,12 +37,13 @@ describe('[slug]', () => {
     });
 
     it('returns correct props', () => {
-      const post = testPosts.find((p) => p.slug === slug)
       expect(staticProps).toEqual({
         props: {
           recentPosts: expect.any(Array),
           topTags: expect.any(Array),
-          post,
+          post: testPosts[1],
+          previousPost: null,
+          nextPost: testPosts[0],
         },
       });
     });

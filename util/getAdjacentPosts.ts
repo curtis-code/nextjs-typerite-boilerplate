@@ -1,8 +1,8 @@
 import { Post } from '../types/Post';
 
 interface IAdjacentPosts {
-  previous: Post | null,
-  next: Post | null,
+  previousPost: Post | null,
+  nextPost: Post | null,
 }
 
 function getPreviousPost(sortedPosts: Array<Post>, postDate: Date): (Post | null) {
@@ -19,7 +19,7 @@ export function getAdjacentPosts(posts: Array<Post>, post: Post): IAdjacentPosts
   const sortedPosts = posts.sort((a, b) => b.date.getTime() - a.date.getTime());
 
   return {
-    previous: getPreviousPost(sortedPosts, post.date),
-    next: getNextPost(sortedPosts, post.date),
+    previousPost: getPreviousPost(sortedPosts, post.date),
+    nextPost: getNextPost(sortedPosts, post.date),
   };
 }

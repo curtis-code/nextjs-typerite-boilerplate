@@ -14,17 +14,17 @@ describe('getAdjacentPosts', () => {
 
     it('returns previous and next post', () => {
       expect(adjacentPosts).toEqual({
-        previous: posts[5],
-        next: posts[3],
+        previousPost: posts[5],
+        nextPost: posts[3],
       });
     });
 
     it('returns previous post with older date', () => {
-      expect(adjacentPosts.previous.date < post.date).toEqual(true);
+      expect(adjacentPosts.previousPost.date < post.date).toEqual(true);
     });
 
     it('returns next post with newer date', () => {
-      expect(adjacentPosts.next.date > post.date).toEqual(true);
+      expect(adjacentPosts.nextPost.date > post.date).toEqual(true);
     });
   });
 
@@ -32,8 +32,8 @@ describe('getAdjacentPosts', () => {
     expect(
       getAdjacentPosts(posts, posts[9]),
     ).toEqual({
-      previous: null,
-      next: posts[8],
+      previousPost: null,
+      nextPost: posts[8],
     });
   });
 
@@ -41,8 +41,8 @@ describe('getAdjacentPosts', () => {
     expect(
       getAdjacentPosts(posts, posts[0]),
     ).toEqual({
-      previous: posts[1],
-      next: null,
+      previousPost: posts[1],
+      nextPost: null,
     });
   });
 });

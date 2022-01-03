@@ -20,7 +20,41 @@ function FooterPostTags({ tags }: { tags: Array<string> }) {
   );
 }
 
-export default function PostDisplay({ post }: { post: Post }) {
+function AdjacentPosts({ previousPost, nextPost }: { previousPost: Post, nextPost: Post }) {
+  if (!previousPost && !nextPost) return null;
+  return (
+    <div className="entry__pagenav">
+      <div className="entry__nav">
+        {previousPost
+          && (
+            <div className="entry__prev">
+              <a href={`/post/${previousPost.slug}`} rel="prev">
+                <span>Previous Post</span>
+                {previousPost.title}
+              </a>
+            </div>
+          )}
+        {nextPost
+          && (
+            <div className="entry__next">
+              <a href={`/post/${nextPost.slug}`} rel="next">
+                <span>Next Post</span>
+                {nextPost.title}
+              </a>
+            </div>
+          )}
+      </div>
+    </div>
+  );
+}
+
+interface PostDisplayProps {
+  post: Post;
+  previousPost: Post;
+  nextPost: Post;
+}
+
+export default function PostDisplay({ post, previousPost, nextPost }: PostDisplayProps) {
   return (
     <div className="s-content content">
       <main className="row content__page">
@@ -159,24 +193,7 @@ export default function PostDisplay({ post }: { post: Post }) {
 
             {post.tags && <FooterPostTags tags={post.tags} />}
           </div>
-
-          <div className="entry__pagenav">
-            <div className="entry__nav">
-              <div className="entry__prev">
-                <a href="#0" rel="prev">
-                  <span>Previous Post</span>
-                  Tips on Minimalist Design
-                </a>
-              </div>
-              <div className="entry__next">
-                <a href="#0" rel="next">
-                  <span>Next Post</span>
-                  Less Is More
-                </a>
-              </div>
-            </div>
-          </div>
-
+          <AdjacentPosts previousPost={previousPost} nextPost={nextPost} />
           <div className="entry__related">
             <h3 className="h2">Related Articles</h3>
 

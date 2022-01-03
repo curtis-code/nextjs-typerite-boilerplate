@@ -6,16 +6,21 @@ import { getPosts } from '../../util/getPosts';
 import AppLayout, { AppLayoutProps } from '../../components/AppLayout';
 import { getAppLayoutProps } from '../../util/getAppLayoutProps';
 import PostDisplay from '../../components/PostDisplay';
+import { getAdjacentPosts } from '../../util/getAdjacentPosts';
 
 interface PageProps extends AppLayoutProps {
-  post: Post
+  post: Post,
+  previousPost: Post,
+  nextPost: Post,
 }
 
 // eslint-disable-next-line react/function-component-definition
-const Page: NextPage<PageProps> = function ({ post, recentPosts, topTags }: PageProps) {
+const Page: NextPage<PageProps> = function ({
+  post, recentPosts, topTags, previousPost, nextPost,
+}: PageProps) {
   return (
     <AppLayout recentPosts={recentPosts} topTags={topTags}>
-      <PostDisplay post={post} />
+      <PostDisplay post={post} previousPost={previousPost} nextPost={nextPost} />
     </AppLayout>
   );
 };
@@ -45,13 +50,16 @@ interface IGetStaticProps {
 
 export const getStaticProps = ({ params: { slug } }: IGetStaticProps) => {
   const posts: Array<Post> = getPosts();
-  const post = posts.find((p) => p.slug === slug);
+  const post = posts.find((p) => p.slug === slug)!;
   const appLayoutProps = getAppLayoutProps(posts);
+  const { previousPost, nextPost } = getAdjacentPosts(posts, post);
 
   return {
     props: {
       ...appLayoutProps,
       post,
+      previousPost,
+      nextPost,
     },
   };
 };
