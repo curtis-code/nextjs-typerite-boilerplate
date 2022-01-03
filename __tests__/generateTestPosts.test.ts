@@ -1,8 +1,8 @@
 import { Post } from '../types/Post';
 
-export function generateTestPosts(): Array<Post> {
+export function generateTestPosts(postCount: number = 50): Array<Post> {
   const posts: Array<Post> = [];
-  for (let i = 0; i < 50; i += 1) {
+  for (let i = 0; i < postCount; i += 1) {
     const date: Date = new Date('2023-01-01');
     date.setDate(date.getDate() - i);
 
