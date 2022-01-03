@@ -17,6 +17,10 @@ describe('PostDisplay', () => {
       expect(screen.getByText(post.title)).toBeInTheDocument();
     });
 
+    it('renders formatted date', () => {
+      expect(screen.getByText('Jan 30, 2022')).toBeInTheDocument();
+    });
+
     it('renders first tag twice', () => {
       expect(screen.getAllByText('foo-tag')).toHaveLength(2);
     });
