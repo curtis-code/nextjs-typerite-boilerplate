@@ -204,6 +204,7 @@ p img {
     margin : 0;
 }
 
+.entry__content > div > p:first-child,
 p.lead {
     font-family   : "IBM Plex Sans", sans-serif;
     font-weight   : 300;
@@ -214,12 +215,14 @@ p.lead {
 }
 
 @media screen and (max-width: 1200px) {
+    .entry__content > div > p:first-child,
     p.lead {
         font-size : 2.2rem;
     }
 }
 
 @media screen and (max-width: 600px) {
+    .entry__content > div > p:first-child,
     p.lead {
         font-size : 2.1rem;
     }
@@ -1033,6 +1036,7 @@ input::-moz-focus-inner {
  * ------------------------------------------------------------------- */
 /* drop cap 
  * ----------------------------------------------- */
+ .entry__content > div > p:first-child:first-letter,
 .drop-cap:first-letter {
     float       : left;
     margin      : 0;

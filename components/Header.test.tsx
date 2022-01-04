@@ -6,11 +6,21 @@ import { Post } from '../types/Post';
 
 describe('Header', () => {
   const recentPosts: Array<Post> = [
-    { title: 'Post Title E', date: new Date('2021-01-30'), slug: 'a' },
-    { title: 'Post Title D', date: new Date('2021-01-29'), slug: 'b' },
-    { title: 'Post Title C', date: new Date('2021-01-28'), slug: 'c' },
-    { title: 'Post Title B', date: new Date('2021-01-27'), slug: 'd' },
-    { title: 'Post Title A', date: new Date('2021-01-26'), slug: 'e' },
+    {
+      title: 'Post Title E', date: new Date('2021-01-30'), slug: 'a', content: 'foo',
+    },
+    {
+      title: 'Post Title D', date: new Date('2021-01-29'), slug: 'b', content: 'foo',
+    },
+    {
+      title: 'Post Title C', date: new Date('2021-01-28'), slug: 'c', content: 'foo',
+    },
+    {
+      title: 'Post Title B', date: new Date('2021-01-27'), slug: 'd', content: 'foo',
+    },
+    {
+      title: 'Post Title A', date: new Date('2021-01-26'), slug: 'e', content: 'foo',
+    },
   ];
 
   const topTags: Array<Tag> = [

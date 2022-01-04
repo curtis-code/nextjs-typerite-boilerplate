@@ -7,20 +7,27 @@ import AppLayout, { AppLayoutProps } from '../../components/AppLayout';
 import { getAppLayoutProps } from '../../util/getAppLayoutProps';
 import PostDisplay from '../../components/PostDisplay';
 import { getAdjacentPosts } from '../../util/getAdjacentPosts';
+import { getRelatedPosts } from '../../util/getRelatedPosts';
 
 interface PageProps extends AppLayoutProps {
   post: Post,
   previousPost: Post,
   nextPost: Post,
+  relatedPosts: Array<Post>,
 }
 
 // eslint-disable-next-line react/function-component-definition
 const Page: NextPage<PageProps> = function ({
-  post, recentPosts, topTags, previousPost, nextPost,
+  post, recentPosts, topTags, previousPost, nextPost, relatedPosts,
 }: PageProps) {
   return (
     <AppLayout recentPosts={recentPosts} topTags={topTags}>
-      <PostDisplay post={post} previousPost={previousPost} nextPost={nextPost} />
+      <PostDisplay
+        post={post}
+        previousPost={previousPost}
+        nextPost={nextPost}
+        relatedPosts={relatedPosts}
+      />
     </AppLayout>
   );
 };
@@ -53,6 +60,7 @@ export const getStaticProps = ({ params: { slug } }: IGetStaticProps) => {
   const post = posts.find((p) => p.slug === slug)!;
   const appLayoutProps = getAppLayoutProps(posts);
   const { previousPost, nextPost } = getAdjacentPosts(posts, post);
+  const relatedPosts = getRelatedPosts(posts, post);
 
   return {
     props: {
@@ -60,6 +68,7 @@ export const getStaticProps = ({ params: { slug } }: IGetStaticProps) => {
       post,
       previousPost,
       nextPost,
+      relatedPosts,
     },
   };
 };

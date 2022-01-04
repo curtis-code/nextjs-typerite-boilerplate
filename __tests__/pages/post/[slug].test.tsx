@@ -44,6 +44,7 @@ describe('[slug]', () => {
           post: testPosts[1],
           previousPost: null,
           nextPost: testPosts[0],
+          relatedPosts: expect.any(Array),
         },
       });
     });

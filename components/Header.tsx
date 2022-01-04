@@ -1,7 +1,24 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import React from 'react';
+import { config } from '../config';
 import { Post } from '../types/Post';
 import { Tag } from '../types/Tag';
+
+function SocialLinks() {
+  if (!config.socialLinks || !config.socialLinks.length) return null;
+
+  return (
+    <ul className="header__social">
+      {config.socialLinks.map((socialLink) => (
+        <li className={`ss-${socialLink.className}`}>
+          <a href={socialLink.url}>
+            <span className="screen-reader-text">{socialLink.name}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 interface HeaderProps {
   recentPosts: Array<Post>;
@@ -43,30 +60,7 @@ export default function Header({ recentPosts, topTags }: HeaderProps) {
           <li><a href="page-about.html" title="">About</a></li>
           <li><a href="page-contact.html" title="">Contact</a></li>
         </ul>
-
-        <ul className="header__social">
-          <li className="ss-facebook">
-            <a href="https://facebook.com/">
-              <span className="screen-reader-text">Facebook</span>
-            </a>
-          </li>
-          <li className="ss-twitter">
-            <a href="#0">
-              <span className="screen-reader-text">Twitter</span>
-            </a>
-          </li>
-          <li className="ss-dribbble">
-            <a href="#0">
-              <span className="screen-reader-text">Dribbble</span>
-            </a>
-          </li>
-          <li className="ss-pinterest">
-            <a href="#0">
-              <span className="screen-reader-text">Behance</span>
-            </a>
-          </li>
-        </ul>
-
+        <SocialLinks />
       </nav>
 
       <a href="#0" className="header__menu-toggle">
