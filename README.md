@@ -45,4 +45,7 @@ npm run cypress
 ```
 
 ## Original Theme Credits
- - [Typerite by StyleShout](https://www.styleshout.com/say-hi-to-typerite-a-clean-simple-masonry-blog-template/)
+ - [Typerite by StyleShout](https://www.styleshout.com/free-templates/typerite/)
+
+## License
+Read More [LICENSE](https://github.com/curtistimson/nextjs-typerite-boilerplate/blob/main/LICENSE)
