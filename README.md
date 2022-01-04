@@ -7,6 +7,9 @@ Next.js boilerplate template ported from [StyleShout](https://www.styleshout.com
 
 ![image](https://user-images.githubusercontent.com/15653985/148108693-546baa8e-2110-45cb-b836-f08358b3bf35.png)
 
+
+## Demo
+https://nextjs-typerite-boilerplate.netlify.app
 ## Post Front Matter
 
 | Property    | Required | Description                          |
@@ -40,3 +43,6 @@ npm t
 ```
 npm run cypress
 ```
+
+## Original Theme Credits
+ - [Typerite by StyleShout](https://www.styleshout.com/say-hi-to-typerite-a-clean-simple-masonry-blog-template/)
