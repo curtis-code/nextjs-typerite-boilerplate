@@ -4,7 +4,13 @@ interface SocialLink {
   url: string,
 }
 
+interface NavigationLink {
+  name: string;
+  href: string;
+}
+
 export interface Config {
   postsPerPage: number;
-  socialLinks?: Array<SocialLink>
+  socialLinks?: Array<SocialLink>;
+  navigationLinks?: Array<NavigationLink>
 }

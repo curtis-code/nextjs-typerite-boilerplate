@@ -24,4 +24,8 @@ export const config: Config = {
       url: 'https://pinterest.com',
     },
   ],
+  navigationLinks: [{
+    name: 'About',
+    href: '/about',
+  }],
 };
