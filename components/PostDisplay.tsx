@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import showdown from 'showdown';
 import { Post } from '../types/Post';
@@ -6,14 +7,7 @@ function PostImage({ bannerImage }: { bannerImage: string }) {
   return (
     <div className="media-wrap entry__media">
       <div className="entry__post-thumb">
-        <img
-          src={bannerImage}
-          //  srcset="images/thumbs/single/standard/standard-2000.jpg 2000w,
-          //          images/thumbs/single/standard/standard-1000.jpg 1000w,
-          //          images/thumbs/single/standard/standard-500.jpg 500w"
-          //           sizes="(max-width: 2000px) 100vw, 2000px"
-          alt=""
-        />
+        <Image src={bannerImage} layout="fill" />
       </div>
     </div>
   );
