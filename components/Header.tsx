@@ -4,13 +4,18 @@ import { config } from '../config';
 import { Post } from '../types/Post';
 import { Tag } from '../types/Tag';
 
+function NavigationLinks() {
+  if (!config.navigationLinks || !config.navigationLinks.length) return null;
+  return <>{config.navigationLinks.map((link) => <li><a href={link.href} title="">{link.name}</a></li>)}</>;
+}
+
 function SocialLinks() {
   if (!config.socialLinks || !config.socialLinks.length) return null;
 
   return (
     <ul className="header__social">
       {config.socialLinks.map((socialLink) => (
-        <li className={`ss-${socialLink.className}`}>
+        <li className={`ss-${socialLink.className}`} key={socialLink.name}>
           <a href={socialLink.url}>
             <span className="screen-reader-text">{socialLink.name}</span>
           </a>
@@ -56,9 +61,7 @@ export default function Header({ recentPosts, topTags }: HeaderProps) {
               ))}
             </ul>
           </li>
-          <li><a href="styles.html" title="">Styles</a></li>
-          <li><a href="page-about.html" title="">About</a></li>
-          <li><a href="page-contact.html" title="">Contact</a></li>
+          <NavigationLinks />
         </ul>
         <SocialLinks />
       </nav>
