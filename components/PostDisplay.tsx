@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React from 'react';
 import showdown from 'showdown';
 import { Post } from '../types/Post';
@@ -7,7 +6,7 @@ function PostImage({ bannerImage }: { bannerImage: string }) {
   return (
     <div className="media-wrap entry__media">
       <div className="entry__post-thumb">
-        <Image src={bannerImage} layout="fill" />
+        <img src={bannerImage} alt="" />
       </div>
     </div>
   );
