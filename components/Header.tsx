@@ -10,7 +10,7 @@ function SocialLinks() {
   return (
     <ul className="header__social">
       {config.socialLinks.map((socialLink) => (
-        <li className={`ss-${socialLink.className}`}>
+        <li className={`ss-${socialLink.className}`} key={socialLink.name}>
           <a href={socialLink.url}>
             <span className="screen-reader-text">{socialLink.name}</span>
           </a>
