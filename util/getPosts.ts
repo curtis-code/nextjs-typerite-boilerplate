@@ -13,7 +13,9 @@ export function getPosts() {
     );
 
     const {
+      content,
       data: {
+        bannerImage,
         date,
         description,
         image,
@@ -24,6 +26,8 @@ export function getPosts() {
     } = matter(markdownWithMeta);
 
     const post: Post = {
+      bannerImage,
+      content,
       date: new Date(date),
       description,
       title,
