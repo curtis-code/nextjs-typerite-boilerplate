@@ -6,7 +6,7 @@ import { Tag } from '../types/Tag';
 
 function NavigationLinks() {
   if (!config.navigationLinks || !config.navigationLinks.length) return null;
-  return <>{config.navigationLinks.map((link) => <li><a href={link.href} title="">{link.name}</a></li>)}</>;
+  return <>{config.navigationLinks.map((link) => <li key={link.name}><a href={link.href} title="">{link.name}</a></li>)}</>;
 }
 
 function SocialLinks() {
