@@ -6,7 +6,7 @@ import PostDisplay from './PostDisplay';
 describe('PostDisplay', () => {
   describe('Posts', () => {
     const post: Post = {
-      title: 'Post Title A', date: new Date('2022-01-30'), slug: 'a', tags: ['foo-tag', 'bar-tag', 'baz-tag'],
+      title: 'Post Title A', date: new Date('2022-01-30'), slug: 'a', tags: ['foo-tag', 'bar-tag', 'baz-tag'], content: 'foo',
     };
 
     beforeEach(() => {
