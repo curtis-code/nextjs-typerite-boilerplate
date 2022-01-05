@@ -1,5 +1,6 @@
 export interface Post {
   bannerImage?: string;
+  bannerImageList?: Array<string>;
   content: string;
   date: Date;
   description?: string;

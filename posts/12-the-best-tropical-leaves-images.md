@@ -9,6 +9,11 @@ image: [
   "/images/thumbs/masonry/gallery/slide-2-1200.jpg",
   "/images/thumbs/masonry/gallery/slide-3-1200.jpg"
 ]
+bannerImage: [
+  "/images/thumbs/single/gallery/single-gallery-01-2000.jpg",
+  "/images/thumbs/single/gallery/single-gallery-02-2000.jpg",
+  "/images/thumbs/single/gallery/single-gallery-03-2000.jpg"
+]
 ---
 Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor sunt sint sit nisi est eu exercitation incididunt adipisicing veniam velit id fugiat enim mollit amet anim veniam dolor dolor irure velit commodo cillum sit nulla ullamco magna amet magna cupidatat qui labore cillum sit in tempor veniam consequat non laborum adipisicing aliqua ea nisi sint.
 

@@ -1,16 +1,7 @@
 import React from 'react';
 import showdown from 'showdown';
 import { Post } from '../types/Post';
-
-function PostImage({ bannerImage }: { bannerImage: string }) {
-  return (
-    <div className="media-wrap entry__media">
-      <div className="entry__post-thumb">
-        <img src={bannerImage} alt="" />
-      </div>
-    </div>
-  );
-}
+import PostDisplayBannerImage from './PostDisplayBannerImage';
 
 function HeaderPostTags({ tags }: { tags: Array<string> }) {
   return (
@@ -107,13 +98,13 @@ export default function PostDisplay({
     month: 'short',
     year: 'numeric',
   });
+  const formatClass = post.bannerImageList ? 'format-gallery' : 'format-standard';
 
   return (
     <div className="s-content content">
       <main className="row content__page">
-
-        <article className="column large-full entry format-standard">
-          {post.bannerImage && <PostImage bannerImage={post.bannerImage} />}
+        <article className={`column large-full entry ${formatClass}`}>
+          <PostDisplayBannerImage post={post} />
           <div className="content__page-header entry__header">
             <h1 className="display-1 entry__title">
               {post.title}
@@ -128,7 +119,6 @@ export default function PostDisplay({
               {post.tags && <HeaderPostTags tags={post.tags} />}
             </ul>
           </div>
-
           <div className="entry__content">
             <PostContent content={post.content} />
             {post.tags && <FooterPostTags tags={post.tags} />}
