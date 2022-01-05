@@ -1,5 +1,5 @@
 describe('Post', () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit('http://localhost:3000/');
 
     cy.wait(200);
@@ -10,7 +10,7 @@ describe('Post', () => {
 
     cy.get('article.entry h2 a').first().as('firstPost');
 
-    cy.get('@firstPost').invoke('text').as('firstPostTitle');
+    cy.get('@firstPost').invoke('text').as('postTitle');
 
     cy.get('@firstPost').click();
 
@@ -21,8 +21,14 @@ describe('Post', () => {
   });
 
   it('should display post title', () => {
-    cy.get('@firstPostTitle').then((firstPostTitle) => {
-      cy.get('h1').should('have.text', firstPostTitle);
+    cy.get('@postTitle').then((postTitle) => {
+      cy.get('h1').should('have.text', postTitle);
+    });
+  });
+
+  it('should contain post title in page title', () => {
+    cy.get('@postTitle').then((postTitle) => {
+      cy.title().should('contain', postTitle);
     });
   });
 });
