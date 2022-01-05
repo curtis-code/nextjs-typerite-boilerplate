@@ -18,7 +18,7 @@ https://nextjs-typerite-boilerplate.netlify.app
 | slug        | ✅        | Url slug (`/post/{slug}`)            |
 | date        | ✅        | Post date                            |
 | description |          | Post description                     |
-| image       |          | Thumbnail image                      |
+| image       |          | Thumbnail image(s) (ex.`/images/foo.png` or `['/images/foo.png', '/images/bar.png']`)                      |
 | bannerImage |          | Banner image displayed on post page  |
 | tags        |          | Array of tags (ex: `['foo', 'bar']`) |
 

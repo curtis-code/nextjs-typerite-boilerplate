@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { Post } from '../types/Post';
+import { parsePost } from './parsePost';
 
 export function getPosts() {
   const files = fs.readdirSync(path.join('posts'));
@@ -12,32 +13,9 @@ export function getPosts() {
       'utf-8',
     );
 
-    const {
-      content,
-      data: {
-        bannerImage,
-        date,
-        description,
-        image,
-        title,
-        slug,
-        tags,
-      },
-    } = matter(markdownWithMeta);
+    const { content, data } = matter(markdownWithMeta);
 
-    const post: Post = {
-      bannerImage,
-      content,
-      date: new Date(date),
-      description,
-      title,
-      slug,
-      tags,
-    };
-
-    if (image) post.image = image;
-
-    return post;
+    return parsePost(data, content);
   });
 
   return posts.sort((a, b) => b.date.getTime() - a.date.getTime());

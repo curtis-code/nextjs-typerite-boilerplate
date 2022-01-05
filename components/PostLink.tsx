@@ -2,7 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Post } from '../types/Post';
 
-function PostThumbnail({ post }: { post: Post }) {
+function PostImageCarousel({ post }: { post: Post }) {
+  return (
+    <div className="entry__thumb slider" data-testid="postimagecarousel">
+      <div className="slider__slides">
+        {post.imageList?.map((image) => (
+          <div key={image} className="slider__slide">
+            <img src={image} alt="" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PostImageThumbnail({ post }: { post: Post }) {
+  if (post.imageList && post.imageList.length > 1) {
+    return <PostImageCarousel post={post} />;
+  }
   return (
     <div className="entry__thumb" data-testid="postthumbnail">
       <a href={`/post/${post.slug}`} className="entry__thumb-link" data-testid="postthumbnail-link">
@@ -43,8 +60,9 @@ function PostDescription({ description }: { description: string }) {
 
 export default function PostLink({ post }: { post: Post }) {
   const {
-    date, description, image, tags, title, slug,
+    date, description, image, imageList, tags, title, slug,
   } = post;
+  const formatClass = imageList ? 'format-gallery' : 'format-standard';
   const postUrl = `/post/${slug}`;
   const formattedDate = date.toLocaleDateString('en-US', {
     day: 'numeric',
@@ -53,9 +71,9 @@ export default function PostLink({ post }: { post: Post }) {
   });
 
   return (
-    <article className="masonry__brick entry format-standard animate-this">
+    <article className={`masonry__brick entry ${formatClass} animate-this`}>
 
-      {image && <PostThumbnail post={post} />}
+      {image && <PostImageThumbnail post={post} />}
 
       <div className="entry__text">
         <div className="entry__header">

@@ -9,6 +9,7 @@ describe('PostLink', () => {
     date: new Date('2021-02-03 11:35'),
     title: 'post title',
     slug: 'post-title',
+    content: 'foo',
   };
 
   describe('base', () => {
@@ -95,6 +96,24 @@ describe('PostLink', () => {
       expect(
         screen.getByRole('img'),
       ).toHaveAttribute('src', post.image);
+    });
+  });
+
+  describe('with multiple images', () => {
+    const postWithImages: Post = {
+      ...post,
+      image: '/images/foo.jpg',
+      imageList: ['/images/foo.jpg', '/images/bar.jpg'],
+    };
+
+    beforeEach(() => {
+      render(<PostLink post={postWithImages} />);
+    });
+
+    it('does render thumbnail component', () => {
+      expect(
+        screen.queryByTestId('postimagecarousel'),
+      ).toBeTruthy();
     });
   });
 
