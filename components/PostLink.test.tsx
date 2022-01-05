@@ -9,6 +9,7 @@ describe('PostLink', () => {
     date: new Date('2021-02-03 11:35'),
     title: 'post title',
     slug: 'post-title',
+    content: 'foo',
   };
 
   describe('base', () => {
