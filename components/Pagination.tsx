@@ -37,6 +37,8 @@ PageLink.defaultProps = {
 };
 
 export default function Pagination({ currentPage, pageCount, tag }: IPagination) {
+  if (pageCount === 1) return null;
+
   const isLastPage = currentPage === pageCount;
   const pages = pager(pageCount, currentPage - 1, {
     target: 4,
@@ -48,7 +50,7 @@ export default function Pagination({ currentPage, pageCount, tag }: IPagination)
   const getPagePath = getPagePathFactory(tag);
 
   return (
-    <nav className="pgn">
+    <nav className="pgn" data-testid="pagination">
       <ul>
         {currentPage > 1 && <li><a className="pgn__prev" href={getPagePath(currentPage - 1)}>Prev</a></li>}
         {pages.map((page) => (

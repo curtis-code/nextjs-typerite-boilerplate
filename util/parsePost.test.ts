@@ -49,6 +49,7 @@ describe('parsePost', () => {
       bannerImage,
       description,
       image: '/foo.png',
+      imageList: image,
       title,
       slug,
       tags,

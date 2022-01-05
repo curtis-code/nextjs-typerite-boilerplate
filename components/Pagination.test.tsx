@@ -3,12 +3,8 @@ import { render, screen } from '@testing-library/react';
 import Pagination from './Pagination';
 
 describe('Pagination', () => {
-  const firstPagePath: string = '/foo';
-
   describe('currentPage = first page', () => {
-    beforeEach(() => {
-      render(<Pagination firstPagePath={firstPagePath} currentPage={1} pageCount={10} />);
-    });
+    beforeEach(() => render(<Pagination currentPage={1} pageCount={10} />));
 
     it('does not render a previous page link', () => {
       expect(screen.queryByRole('link', {
@@ -24,9 +20,7 @@ describe('Pagination', () => {
   });
 
   describe('currentPage = last page', () => {
-    beforeEach(() => {
-      render(<Pagination firstPagePath={firstPagePath} currentPage={10} pageCount={10} />);
-    });
+    beforeEach(() => render(<Pagination currentPage={10} pageCount={10} />));
 
     it('does render a previous page link', () => {
       expect(screen.getByRole('link', {
@@ -38,6 +32,14 @@ describe('Pagination', () => {
       expect(screen.queryByRole('link', {
         name: 'Next',
       })).toBeNull();
+    });
+  });
+
+  describe('pageCount = 1', () => {
+    beforeEach(() => render(<Pagination currentPage={1} pageCount={1} />));
+
+    it('does not render pagination', () => {
+      expect(screen.queryByTestId('pagination')).toBeNull();
     });
   });
 });

@@ -98,6 +98,24 @@ describe('PostLink', () => {
     });
   });
 
+  describe('with multiple images', () => {
+    const postWithImages: Post = {
+      ...post,
+      image: '/images/foo.jpg',
+      imageList: ['/images/foo.jpg', '/images/bar.jpg'],
+    };
+
+    beforeEach(() => {
+      render(<PostLink post={postWithImages} />);
+    });
+
+    it('does render thumbnail component', () => {
+      expect(
+        screen.queryByTestId('postimagecarousel'),
+      ).toBeTruthy();
+    });
+  });
+
   describe('with tags', () => {
     const postWithTags: Post = {
       ...post,

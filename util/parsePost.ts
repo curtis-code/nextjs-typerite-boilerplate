@@ -14,7 +14,13 @@ export function parsePost({
   };
 
   if (image) {
-    post.image = Array.isArray(image) ? image[0] : image;
+    if (Array.isArray(image)) {
+      // eslint-disable-next-line prefer-destructuring
+      post.image = image[0];
+      post.imageList = image;
+    } else {
+      post.image = image;
+    }
   }
 
   return post;
