@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import type { NextPage } from 'next';
+import Head from 'next/head';
 import { Post } from '../../types/Post';
 import { getPosts } from '../../util/getPosts';
 import AppLayout, { AppLayoutProps } from '../../components/AppLayout';
@@ -21,14 +22,23 @@ const Page: NextPage<PageProps> = function ({
   post, recentPosts, topTags, previousPost, nextPost, relatedPosts,
 }: PageProps) {
   return (
-    <AppLayout recentPosts={recentPosts} topTags={topTags}>
-      <PostDisplay
-        post={post}
-        previousPost={previousPost}
-        nextPost={nextPost}
-        relatedPosts={relatedPosts}
-      />
-    </AppLayout>
+    <>
+      <Head>
+        <title>
+          {post.title}
+          {' '}
+          - Typerite
+        </title>
+      </Head>
+      <AppLayout recentPosts={recentPosts} topTags={topTags}>
+        <PostDisplay
+          post={post}
+          previousPost={previousPost}
+          nextPost={nextPost}
+          relatedPosts={relatedPosts}
+        />
+      </AppLayout>
+    </>
   );
 };
 
