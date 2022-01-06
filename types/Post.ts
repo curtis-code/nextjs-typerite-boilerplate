@@ -9,4 +9,5 @@ export interface Post {
   tags?: Array<string>;
   title: string;
   slug: string;
+  videoUrl?: string;
 }
