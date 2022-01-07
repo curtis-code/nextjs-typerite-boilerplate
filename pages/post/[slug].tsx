@@ -6,7 +6,7 @@ import { Post } from '../../types/Post';
 import { getPosts } from '../../util/getPosts';
 import AppLayout, { AppLayoutProps } from '../../components/AppLayout';
 import { getAppLayoutProps } from '../../util/getAppLayoutProps';
-import PostDisplay from '../../components/PostDisplay';
+import PostDisplay from '../../components/PostDisplay/PostDisplay';
 import { getAdjacentPosts } from '../../util/getAdjacentPosts';
 import { getRelatedPosts } from '../../util/getRelatedPosts';
 
