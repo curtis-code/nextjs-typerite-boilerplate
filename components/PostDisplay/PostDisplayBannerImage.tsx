@@ -1,5 +1,5 @@
 import React from 'react';
-import { Post } from '../types/Post';
+import { Post } from '../../types/Post';
 
 function ImageCarousel({ bannerImageList }: { bannerImageList: Array<string> }) {
   return (

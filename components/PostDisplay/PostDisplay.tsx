@@ -1,6 +1,6 @@
 import React from 'react';
 import showdown from 'showdown';
-import { Post } from '../types/Post';
+import { Post } from '../../types/Post';
 import PostDisplayBannerImage from './PostDisplayBannerImage';
 
 function HeaderPostTags({ tags }: { tags: Array<string> }) {

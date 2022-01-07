@@ -22,7 +22,7 @@ function PostVideo({ post }: { post: Post }) {
         <img src={post.image} alt="" />
       </a>
     </div>
-  )
+  );
 }
 
 export default function PostLinkImage({ post }: { post: Post }) {

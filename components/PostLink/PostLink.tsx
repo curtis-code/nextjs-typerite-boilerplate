@@ -35,7 +35,7 @@ function getFormatClass(post: Post): ('format-gallery' | 'format-video' | 'forma
 
 export default function PostLink({ post }: { post: Post }) {
   const {
-    date, description, image, tags, title, slug,
+    date, description, tags, title, slug,
   } = post;
   const postUrl = `/post/${slug}`;
   const formattedDate = date.toLocaleDateString('en-US', {
