@@ -16,6 +16,7 @@ function PostImageCarousel({ post }: { post: Post }) {
 }
 
 export default function PostLinkImage({ post }: { post: Post }) {
+  if (!post.image && !post.imageList) return null;
   if (post.imageList && post.imageList.length > 1) {
     return <PostImageCarousel post={post} />;
   }

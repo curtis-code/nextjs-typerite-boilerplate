@@ -46,12 +46,9 @@ export default function PostLink({ post }: { post: Post }) {
 
   return (
     <article className={`masonry__brick entry ${getFormatClass(post)} animate-this`}>
-
-      {image && <PostLinkImage post={post} />}
-
+      <PostLinkImage post={post} />
       <div className="entry__text">
         <div className="entry__header">
-
           <h2 className="entry__title"><a href={postUrl}>{title}</a></h2>
           <div className="entry__meta">
             {tags && <PostTags tags={tags} />}
@@ -59,11 +56,9 @@ export default function PostLink({ post }: { post: Post }) {
               <a href={postUrl}>{formattedDate}</a>
             </span>
           </div>
-
         </div>
         {description && <PostDescription description={description} />}
       </div>
-
     </article>
   );
 }

@@ -11,6 +11,13 @@ describe('PostLinkImage', () => {
     content: 'foo',
   };
 
+  describe('no image', () => {
+    it('does not render image', () => {
+      render(<PostLinkImage post={post} />);
+      expect(screen.queryByTestId('postthumbnail')).toBeNull();
+    });
+  });
+
   describe('with image', () => {
     const postWithImage: Post = {
       ...post,
@@ -54,7 +61,7 @@ describe('PostLinkImage', () => {
     it('does render thumbnail component', () => {
       expect(
         screen.queryByTestId('postimagecarousel'),
-      ).toBeTruthy();
+      ).toBeInTheDocument();
     });
   });
 });
