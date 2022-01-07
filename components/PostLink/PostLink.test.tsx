@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { within } from '@testing-library/dom';
 import PostLink from './PostLink';
-import { Post } from '../types/Post';
+import { Post } from '../../types/Post';
 
 describe('PostLink', () => {
   const post: Post = {
@@ -67,53 +67,6 @@ describe('PostLink', () => {
           screen.queryByTestId('description'),
         ).toBeNull();
       });
-    });
-  });
-
-  describe('with image', () => {
-    const postWithImage: Post = {
-      ...post,
-      image: '/images/foo.jpg',
-    };
-
-    beforeEach(() => {
-      render(<PostLink post={postWithImage} />);
-    });
-
-    it('does render thumbnail component', () => {
-      expect(
-        screen.queryByTestId('postthumbnail'),
-      ).toBeTruthy();
-    });
-
-    it('renders link for image', () => {
-      expect(
-        screen.getByTestId('postthumbnail-link'),
-      ).toHaveAttribute('href', `/post/${post.slug}`);
-    });
-
-    it('renders image', () => {
-      expect(
-        screen.getByRole('img'),
-      ).toHaveAttribute('src', post.image);
-    });
-  });
-
-  describe('with multiple images', () => {
-    const postWithImages: Post = {
-      ...post,
-      image: '/images/foo.jpg',
-      imageList: ['/images/foo.jpg', '/images/bar.jpg'],
-    };
-
-    beforeEach(() => {
-      render(<PostLink post={postWithImages} />);
-    });
-
-    it('does render thumbnail component', () => {
-      expect(
-        screen.queryByTestId('postimagecarousel'),
-      ).toBeTruthy();
     });
   });
 
