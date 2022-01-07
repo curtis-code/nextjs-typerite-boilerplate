@@ -64,4 +64,22 @@ describe('PostLinkImage', () => {
       ).toBeInTheDocument();
     });
   });
+
+  describe('with video', () => {
+    const postWithImages: Post = {
+      ...post,
+      image: '/images/foo.jpg',
+      videoUrl: '/videourl',
+    };
+
+    beforeEach(() => {
+      render(<PostLinkImage post={postWithImages} />);
+    });
+
+    it('does render video component', () => {
+      expect(
+        screen.queryByTestId('postvideo'),
+      ).toBeInTheDocument();
+    });
+  });
 });

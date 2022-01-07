@@ -15,11 +15,22 @@ function PostImageCarousel({ post }: { post: Post }) {
   );
 }
 
+function PostVideo({ post }: { post: Post }) {
+  return (
+    <div className="entry__thumb video-image" data-testid="postvideo">
+      <a href={post.videoUrl} data-lity className="entry__thumb-link">
+        <img src={post.image} alt="" />
+      </a>
+    </div>
+  )
+}
+
 export default function PostLinkImage({ post }: { post: Post }) {
   if (!post.image && !post.imageList) return null;
   if (post.imageList && post.imageList.length > 1) {
     return <PostImageCarousel post={post} />;
   }
+  if (post.videoUrl) return <PostVideo post={post} />;
   return (
     <div className="entry__thumb" data-testid="postthumbnail">
       <a href={`/post/${post.slug}`} className="entry__thumb-link" data-testid="postthumbnail-link">
