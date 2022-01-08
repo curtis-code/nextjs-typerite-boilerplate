@@ -18,9 +18,15 @@ https://nextjs-typerite-boilerplate.netlify.app
 | slug        | ✅        | Url slug (`/post/{slug}`)            |
 | date        | ✅        | Post date                            |
 | description |          | Post description                     |
-| image       |          | Thumbnail image(s) (ex.`/images/foo.png` or `['/images/foo.png', '/images/bar.png']`)                      |
-| bannerImage |          | Banner image displayed on post page  |
 | tags        |          | Array of tags (ex: `['foo', 'bar']`) |
+| image       |          | Thumbnail image(s) (ex.`/images/foo.png` or `['/images/foo.png', '/images/bar.png']`)                      |
+| bannerImage |          | Banner image(s) displayed on post page (ex.`/images/foo.png` or `['/images/foo.png', '/images/bar.png']`)   |
+| video        |          | Video embed URL for displaying video on post list and page |
+
+### Examples
+
+ - [Image & Banner Image](https://github.com/curtistimson/nextjs-typerite-boilerplate/blob/main/posts/01-just-a-standard-format-post.md)
+ - [Image Carousel](https://github.com/curtistimson/nextjs-typerite-boilerplate/blob/main/posts/12-the-best-tropical-leaves-images.md)
 
 ## Local Development
 

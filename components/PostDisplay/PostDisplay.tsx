@@ -1,7 +1,8 @@
 import React from 'react';
 import showdown from 'showdown';
-import { Post } from '../types/Post';
+import { Post } from '../../types/Post';
 import PostDisplayBannerImage from './PostDisplayBannerImage';
+import PostDisplayVideo from './PostDisplayVideo';
 
 function HeaderPostTags({ tags }: { tags: Array<string> }) {
   return (
@@ -83,6 +84,12 @@ function RelatedPosts({ relatedPosts }: { relatedPosts: (Array<Post> | undefined
   );
 }
 
+function getFormatClass(post: Post): ('format-gallery' | 'format-video' | 'format-standard') {
+  if (post.imageList) return 'format-gallery';
+  if (post.image && post.videoUrl) return 'format-video';
+  return 'format-standard';
+}
+
 interface PostDisplayProps {
   post: Post;
   previousPost?: Post;
@@ -98,12 +105,12 @@ export default function PostDisplay({
     month: 'short',
     year: 'numeric',
   });
-  const formatClass = post.bannerImageList ? 'format-gallery' : 'format-standard';
 
   return (
     <div className="s-content content">
       <main className="row content__page">
-        <article className={`column large-full entry ${formatClass}`}>
+        <article className={`column large-full entry ${getFormatClass(post)}`}>
+          {post.videoUrl && <PostDisplayVideo videoUrl={post.videoUrl} />}
           <PostDisplayBannerImage post={post} />
           <div className="content__page-header entry__header">
             <h1 className="display-1 entry__title">

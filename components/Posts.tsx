@@ -1,7 +1,7 @@
 import React from 'react';
 import { Post } from '../types/Post';
 import Pagination from './Pagination';
-import PostLink from './PostLink';
+import PostLink from './PostLink/PostLink';
 
 interface IPosts {
   posts: Array<Post>;

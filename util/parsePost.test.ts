@@ -7,10 +7,10 @@ describe('parsePost', () => {
   const title = 'title';
   const slug = 'slug';
   const tags = ['foo'];
+  const content = 'foo';
 
   it('parses post', () => {
     const image = '/image.png';
-    const content = 'foo';
     const data = {
       bannerImage,
       description,
@@ -34,7 +34,6 @@ describe('parsePost', () => {
 
   it('parses post with array of images', () => {
     const image = ['/foo.png', '/bar.png'];
-    const content = 'foo';
     const data = {
       bannerImage,
       description,
@@ -58,7 +57,6 @@ describe('parsePost', () => {
   });
 
   it('parses post with array of banner images', () => {
-    const content = 'foo';
     const data = {
       bannerImage: ['/foo.png', '/bar.png'],
       description,
@@ -76,6 +74,29 @@ describe('parsePost', () => {
       slug,
       tags,
       date: new Date(date),
+    });
+  });
+
+  it('parses post with video', () => {
+    const video = 'https://videourl';
+    const data = {
+      bannerImage,
+      description,
+      title,
+      slug,
+      tags,
+      date,
+      video,
+    };
+    expect(parsePost(data, content)).toEqual({
+      content,
+      bannerImage,
+      description,
+      title,
+      slug,
+      tags,
+      date: new Date(date),
+      videoUrl: video,
     });
   });
 });

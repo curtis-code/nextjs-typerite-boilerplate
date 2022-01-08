@@ -1,38 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Post } from '../types/Post';
-
-function PostImageCarousel({ post }: { post: Post }) {
-  return (
-    <div className="entry__thumb slider" data-testid="postimagecarousel">
-      <div className="slider__slides">
-        {post.imageList?.map((image) => (
-          <div key={image} className="slider__slide">
-            <img src={image} alt="" />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function PostImageThumbnail({ post }: { post: Post }) {
-  if (post.imageList && post.imageList.length > 1) {
-    return <PostImageCarousel post={post} />;
-  }
-  return (
-    <div className="entry__thumb" data-testid="postthumbnail">
-      <a href={`/post/${post.slug}`} className="entry__thumb-link" data-testid="postthumbnail-link">
-        <img
-          src={post.image}
-          // srcSet="images/thumbs/masonry/woodcraft-600.jpg 1x,
-          // images/thumbs/masonry/woodcraft-1200.jpg 2x"
-          alt={post.title}
-        />
-      </a>
-    </div>
-  );
-}
+import { Post } from '../../types/Post';
+import PostLinkImage from './PostLinkImage';
 
 function PostTags({ tags }: { tags: Array<string> }) {
   return (
@@ -58,11 +27,16 @@ function PostDescription({ description }: { description: string }) {
   );
 }
 
+function getFormatClass(post: Post): ('format-gallery' | 'format-video' | 'format-standard') {
+  if (post.imageList) return 'format-gallery';
+  if (post.image && post.videoUrl) return 'format-video';
+  return 'format-standard';
+}
+
 export default function PostLink({ post }: { post: Post }) {
   const {
-    date, description, image, imageList, tags, title, slug,
+    date, description, tags, title, slug,
   } = post;
-  const formatClass = imageList ? 'format-gallery' : 'format-standard';
   const postUrl = `/post/${slug}`;
   const formattedDate = date.toLocaleDateString('en-US', {
     day: 'numeric',
@@ -71,13 +45,10 @@ export default function PostLink({ post }: { post: Post }) {
   });
 
   return (
-    <article className={`masonry__brick entry ${formatClass} animate-this`}>
-
-      {image && <PostImageThumbnail post={post} />}
-
+    <article className={`masonry__brick entry ${getFormatClass(post)} animate-this`}>
+      <PostLinkImage post={post} />
       <div className="entry__text">
         <div className="entry__header">
-
           <h2 className="entry__title"><a href={postUrl}>{title}</a></h2>
           <div className="entry__meta">
             {tags && <PostTags tags={tags} />}
@@ -85,11 +56,9 @@ export default function PostLink({ post }: { post: Post }) {
               <a href={postUrl}>{formattedDate}</a>
             </span>
           </div>
-
         </div>
         {description && <PostDescription description={description} />}
       </div>
-
     </article>
   );
 }
