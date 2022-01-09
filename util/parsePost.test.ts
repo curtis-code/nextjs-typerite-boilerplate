@@ -1,33 +1,28 @@
 import { parsePost } from './parsePost';
 
 describe('parsePost', () => {
-  const bannerImage = '/bannerImage.png';
   const date = '2022-06-30T00:00:00';
-  const description = 'Lorem ipsum';
-  const title = 'title';
-  const slug = 'slug';
-  const tags = ['foo'];
   const content = 'foo';
+
+  const baseFrontMatter = {
+    bannerImage: '/bannerImage.png',
+    description: 'Lorem ipsum',
+    title: 'title',
+    slug: 'slug',
+    tags: ['foo'],
+  };
 
   it('parses post', () => {
     const image = '/image.png';
     const data = {
-      bannerImage,
-      description,
+      ...baseFrontMatter,
       image,
-      title,
-      slug,
-      tags,
       date,
     };
     expect(parsePost(data, content)).toEqual({
+      ...baseFrontMatter,
       content,
-      bannerImage,
-      description,
       image,
-      title,
-      slug,
-      tags,
       date: new Date(date),
     });
   });
@@ -35,44 +30,30 @@ describe('parsePost', () => {
   it('parses post with array of images', () => {
     const image = ['/foo.png', '/bar.png'];
     const data = {
-      bannerImage,
-      description,
+      ...baseFrontMatter,
       image,
-      title,
-      slug,
-      tags,
       date,
     };
     expect(parsePost(data, content)).toEqual({
+      ...baseFrontMatter,
       content,
-      bannerImage,
-      description,
       image: '/foo.png',
       imageList: image,
-      title,
-      slug,
-      tags,
       date: new Date(date),
     });
   });
 
   it('parses post with array of banner images', () => {
     const data = {
+      ...baseFrontMatter,
       bannerImage: ['/foo.png', '/bar.png'],
-      description,
-      title,
-      slug,
-      tags,
       date,
     };
     expect(parsePost(data, content)).toEqual({
+      ...baseFrontMatter,
       content,
       bannerImage: '/foo.png',
       bannerImageList: data.bannerImage,
-      description,
-      title,
-      slug,
-      tags,
       date: new Date(date),
     });
   });
@@ -80,23 +61,30 @@ describe('parsePost', () => {
   it('parses post with video', () => {
     const video = 'https://videourl';
     const data = {
-      bannerImage,
-      description,
-      title,
-      slug,
-      tags,
+      ...baseFrontMatter,
       date,
       video,
     };
     expect(parsePost(data, content)).toEqual({
+      ...baseFrontMatter,
       content,
-      bannerImage,
-      description,
-      title,
-      slug,
-      tags,
       date: new Date(date),
       videoUrl: video,
+    });
+  });
+
+  it('parses post with audio', () => {
+    const audio = 'https://audiourl';
+    const data = {
+      ...baseFrontMatter,
+      date,
+      audio,
+    };
+    expect(parsePost(data, content)).toEqual({
+      ...baseFrontMatter,
+      content,
+      date: new Date(date),
+      audioUrl: audio,
     });
   });
 });
