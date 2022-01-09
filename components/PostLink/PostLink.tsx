@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Post } from '../../types/Post';
 import PostLinkImage from './PostLinkImage';
+import { getFormatClass } from '../../util/getFormatClass';
 
 function PostTags({ tags }: { tags: Array<string> }) {
   return (
@@ -25,12 +26,6 @@ function PostDescription({ description }: { description: string }) {
       </p>
     </div>
   );
-}
-
-function getFormatClass(post: Post): ('format-gallery' | 'format-video' | 'format-standard') {
-  if (post.imageList) return 'format-gallery';
-  if (post.image && post.videoUrl) return 'format-video';
-  return 'format-standard';
 }
 
 export default function PostLink({ post }: { post: Post }) {

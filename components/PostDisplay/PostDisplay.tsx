@@ -1,6 +1,7 @@
 import React from 'react';
 import showdown from 'showdown';
 import { Post } from '../../types/Post';
+import { getFormatClass } from '../../util/getFormatClass';
 import PostDisplayBannerImage from './PostDisplayBannerImage';
 import PostDisplayVideo from './PostDisplayVideo';
 
@@ -82,12 +83,6 @@ function RelatedPosts({ relatedPosts }: { relatedPosts: (Array<Post> | undefined
       </ul>
     </div>
   );
-}
-
-function getFormatClass(post: Post): ('format-gallery' | 'format-video' | 'format-standard') {
-  if (post.imageList) return 'format-gallery';
-  if (post.image && post.videoUrl) return 'format-video';
-  return 'format-standard';
 }
 
 interface PostDisplayProps {
