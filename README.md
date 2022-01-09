@@ -27,6 +27,7 @@ https://nextjs-typerite-boilerplate.netlify.app
 
  - [Image & Banner Image](https://github.com/curtistimson/nextjs-typerite-boilerplate/blob/main/posts/01-just-a-standard-format-post.md)
  - [Image Carousel](https://github.com/curtistimson/nextjs-typerite-boilerplate/blob/main/posts/12-the-best-tropical-leaves-images.md)
+ - [Video](https://github.com/curtistimson/nextjs-typerite-boilerplate/blob/main/posts/09-no-sugar-oatmeal-cookies.md)
 
 ## Local Development
 
