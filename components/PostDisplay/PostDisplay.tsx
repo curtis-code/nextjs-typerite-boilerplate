@@ -1,8 +1,17 @@
 import React from 'react';
 import showdown from 'showdown';
 import { Post } from '../../types/Post';
+import { getFormatClass } from '../../util/getFormatClass';
 import PostDisplayBannerImage from './PostDisplayBannerImage';
 import PostDisplayVideo from './PostDisplayVideo';
+
+function PostAudio({ audioUrl }: { audioUrl: string }) {
+  return (
+    <div className="media-wrap entry__media">
+      <iframe title="audio embed" width="100%" height="166" scrolling="no" frameBorder="no" allow="autoplay" src={audioUrl} />
+    </div>
+  );
+}
 
 function HeaderPostTags({ tags }: { tags: Array<string> }) {
   return (
@@ -84,12 +93,6 @@ function RelatedPosts({ relatedPosts }: { relatedPosts: (Array<Post> | undefined
   );
 }
 
-function getFormatClass(post: Post): ('format-gallery' | 'format-video' | 'format-standard') {
-  if (post.imageList) return 'format-gallery';
-  if (post.image && post.videoUrl) return 'format-video';
-  return 'format-standard';
-}
-
 interface PostDisplayProps {
   post: Post;
   previousPost?: Post;
@@ -110,6 +113,7 @@ export default function PostDisplay({
     <div className="s-content content">
       <main className="row content__page">
         <article className={`column large-full entry ${getFormatClass(post)}`}>
+          {post.audioUrl && <PostAudio audioUrl={post.audioUrl} />}
           {post.videoUrl && <PostDisplayVideo videoUrl={post.videoUrl} />}
           <PostDisplayBannerImage post={post} />
           <div className="content__page-header entry__header">

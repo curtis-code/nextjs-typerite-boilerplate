@@ -12,5 +12,6 @@ interface NavigationLink {
 export interface Config {
   postsPerPage: number;
   socialLinks?: Array<SocialLink>;
-  navigationLinks?: Array<NavigationLink>
+  navigationLinks?: Array<NavigationLink>;
+  title: string;
 }

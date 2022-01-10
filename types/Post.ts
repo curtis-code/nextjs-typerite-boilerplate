@@ -1,4 +1,5 @@
 export interface Post {
+  audioUrl?: string;
   bannerImage?: string;
   bannerImageList?: Array<string>;
   content: string;

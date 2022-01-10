@@ -1,7 +1,7 @@
 import { Post } from '../types/Post';
 
 export function parsePost({
-  bannerImage, date, description, title, slug, tags, image, video,
+  audio, bannerImage, date, description, title, slug, tags, image, video,
 }: any, content: string): Post {
   const post: Post = {
     content,
@@ -32,6 +32,7 @@ export function parsePost({
     }
   }
 
+  if (audio) post.audioUrl = audio;
   if (video) post.videoUrl = video;
 
   return post;
