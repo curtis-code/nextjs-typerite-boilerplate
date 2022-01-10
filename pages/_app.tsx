@@ -3,13 +3,14 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
 import Head from 'next/head';
+import { generatePageTitle } from '../util/generatePageTitle';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
         <meta charSet="utf-8" />
-        <title>Typerite</title>
+        <title>{generatePageTitle()}</title>
         <meta name="description" content="" />
         <meta name="author" content="" />
 

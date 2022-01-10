@@ -9,6 +9,7 @@ import { getAppLayoutProps } from '../../util/getAppLayoutProps';
 import PostDisplay from '../../components/PostDisplay/PostDisplay';
 import { getAdjacentPosts } from '../../util/getAdjacentPosts';
 import { getRelatedPosts } from '../../util/getRelatedPosts';
+import { generatePageTitle } from '../../util/generatePageTitle';
 
 interface PageProps extends AppLayoutProps {
   post: Post,
@@ -24,11 +25,7 @@ const Page: NextPage<PageProps> = function ({
   return (
     <>
       <Head>
-        <title>
-          {post.title}
-          {' '}
-          - Typerite
-        </title>
+        <title>{generatePageTitle({ prefix: post.title })}</title>
       </Head>
       <AppLayout recentPosts={recentPosts} topTags={topTags}>
         <PostDisplay

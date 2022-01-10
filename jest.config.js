@@ -24,6 +24,7 @@ const customJestConfig = {
     "!**/coverage/**",
     "!**/cypress/**",
     "!**/public/**",
+    "!**/types/**",
   ]
 }
 

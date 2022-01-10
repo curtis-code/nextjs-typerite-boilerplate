@@ -1,6 +1,7 @@
 import { Config } from './types/Config';
 
 export const config: Config = {
+  title: 'Typerite',
   postsPerPage: 14,
   socialLinks: [
     {
