@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import { Post } from '../../types/Post';
 import { getPosts } from '../../util/getPosts';
 import AppLayout, { AppLayoutProps } from '../../components/AppLayout';
@@ -9,7 +8,6 @@ import { getAppLayoutProps } from '../../util/getAppLayoutProps';
 import PostDisplay from '../../components/PostDisplay/PostDisplay';
 import { getAdjacentPosts } from '../../util/getAdjacentPosts';
 import { getRelatedPosts } from '../../util/getRelatedPosts';
-import { generatePageTitle } from '../../util/generatePageTitle';
 
 interface PageProps extends AppLayoutProps {
   post: Post,
@@ -23,19 +21,14 @@ const Page: NextPage<PageProps> = function ({
   post, recentPosts, topTags, previousPost, nextPost, relatedPosts,
 }: PageProps) {
   return (
-    <>
-      <Head>
-        <title>{generatePageTitle({ prefix: post.title })}</title>
-      </Head>
-      <AppLayout recentPosts={recentPosts} topTags={topTags}>
-        <PostDisplay
-          post={post}
-          previousPost={previousPost}
-          nextPost={nextPost}
-          relatedPosts={relatedPosts}
-        />
-      </AppLayout>
-    </>
+    <AppLayout recentPosts={recentPosts} topTags={topTags} pageTitlePrefix={post.title}>
+      <PostDisplay
+        post={post}
+        previousPost={previousPost}
+        nextPost={nextPost}
+        relatedPosts={relatedPosts}
+      />
+    </AppLayout>
   );
 };
 
