@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import { Post } from '../../../types/Post';
 import { getPosts } from '../../../util/getPosts';
 import { config } from '../../../config';
