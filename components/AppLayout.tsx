@@ -6,6 +6,7 @@ import React from 'react';
 import { Post } from '../types/Post';
 import { Tag } from '../types/Tag';
 import { generatePageTitle } from '../util/generatePageTitle';
+import Footer from './Footer';
 import Header from './Header';
 import Search from './Search';
 
@@ -55,25 +56,7 @@ export default function AppLayout({
       <div id="top" className="s-wrap site-wrapper">
         {children}
       </div>
-
-      <footer className="s-footer">
-        <div className="row">
-          <div className="column large-full footer__content">
-            <div className="footer__copyright">
-              <span>© Copyright Typerite 2021</span>
-              <span>
-                {'Design by '}
-                <a href="https://www.styleshout.com/">StyleShout</a>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="go-top">
-          <a className="smoothscroll" title="Back to Top" href="#top" />
-        </div>
-      </footer>
-
+      <Footer />
       <Script type="text/javascript" src="/js/bundle.js" />
     </>
   );

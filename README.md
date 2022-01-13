@@ -1,7 +1,7 @@
 # Next.js Typerite Boilerplate
 
 
-[![CI](https://github.com/curtistimson/nextjs-typerite-boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/curtistimson/nextjs-typerite-boilerplate/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/curtistimson/nextjs-typerite-boilerplate/branch/main/graph/badge.svg?token=GHHI3NUE8N)](https://codecov.io/gh/curtistimson/nextjs-typerite-boilerplate)
+[![CI](https://github.com/curtistimson/nextjs-typerite-boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/curtistimson/nextjs-typerite-boilerplate/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/curtistimson/nextjs-typerite-boilerplate/branch/main/graph/badge.svg?token=GHHI3NUE8N)](https://codecov.io/gh/curtistimson/nextjs-typerite-boilerplate) [![Netlify Status](https://api.netlify.com/api/v1/badges/6dcb608c-3143-4cce-8da0-6f345ee210f0/deploy-status)](https://app.netlify.com/sites/nextjs-typerite-boilerplate/deploys)
 
 Next.js boilerplate template ported from [StyleShout](https://www.styleshout.com/).
 
