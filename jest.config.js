@@ -25,6 +25,9 @@ const customJestConfig = {
     "!**/cypress/**",
     "!**/public/**",
     "!**/types/**",
+    "!**/*.config.js",
+    "!.eslintrc.js",
+    "!next-env.d.ts"
   ]
 }
 

@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import { Post } from '../../../types/Post';
 import { getPosts } from '../../../util/getPosts';
 import { config } from '../../../config';
@@ -12,21 +11,15 @@ import { filterPostsByTag } from '../../../util/filterPostsByTag';
 import { getTopTags } from '../../../util/getTopTags';
 import { getStaticPropsForPosts } from '../../../util/getStaticPropsForPosts';
 import { StaticPropsForPostsProps } from '../../../types/StaticPropsForPosts';
-import { generatePageTitle } from '../../../util/generatePageTitle';
 
 // eslint-disable-next-line react/function-component-definition
 const Page: NextPage<StaticPropsForPostsProps> = function ({
   tag, page, pageCount, posts, recentPosts, topTags,
 }: StaticPropsForPostsProps) {
   return (
-    <>
-      <Head>
-        <title>{generatePageTitle({ prefix: tag })}</title>
-      </Head>
-      <AppLayout recentPosts={recentPosts} topTags={topTags}>
-        <Posts page={page} pageCount={pageCount} posts={posts} tag={tag} />
-      </AppLayout>
-    </>
+    <AppLayout recentPosts={recentPosts} topTags={topTags} pageTitlePrefix={tag}>
+      <Posts page={page} pageCount={pageCount} posts={posts} tag={tag} />
+    </AppLayout>
   );
 };
 
