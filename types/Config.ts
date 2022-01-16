@@ -6,6 +6,7 @@ export enum SocialType {
   instagram = 'Instagram',
   pinterest = 'PInterest',
   rss = 'RSS',
+  stackoverflow = 'Stack Overflow',
   steam = 'Steam',
 }
 

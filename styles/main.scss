@@ -1132,7 +1132,7 @@ input::-moz-focus-inner {
     background-repeat : no-repeat;
     background        : center center;
     background-size   : contain;
-    background-image  : url(../public/images/icons/icon-quote.svg);
+    background-image  : url(../assets/images/icons/icon-quote.svg);
     position          : absolute;
     top               : 4rem;
     left              : 4rem;
@@ -1498,12 +1498,12 @@ input::-moz-focus-inner {
 }
 
 .pgn__prev {
-    background-image : url("../public/images/icons/icon-arrow-left.svg");
+    background-image : url("../assets/images/icons/icon-arrow-left.svg");
     left             : 0;
 }
 
 .pgn__next {
-    background-image : url("../public/images/icons/icon-arrow-right.svg");
+    background-image : url("../assets/images/icons/icon-arrow-right.svg");
     right            : 0;
 }
 
@@ -1934,11 +1934,11 @@ input::-moz-focus-inner {
 }
 
 .format-quote .entry__thumb::before {
-    background-image : url(../public/images/icons/icon-quote.svg);
+    background-image : url(../assets/images/icons/icon-quote.svg);
 }
 
 .format-link .entry__thumb::before {
-    background-image : url(../public/images/icons/icon-link.svg);
+    background-image : url(../assets/images/icons/icon-link.svg);
 }
 
 .format-link .link-wrap cite:before {
@@ -1984,7 +1984,7 @@ input::-moz-focus-inner {
 
 .format-video .entry__thumb::after {
     cursor           : zoom-in;
-    background-image : url(../public/images/icons/icon-video.svg);
+    background-image : url(../assets/images/icons/icon-video.svg);
     background-size  : 3.2rem 3.2rem;
 }
 
@@ -1993,7 +1993,7 @@ input::-moz-focus-inner {
 }
 
 .format-audio .entry__thumb::after {
-    background-image : url(../public/images/icons/icon-audio.svg);
+    background-image : url(../assets/images/icons/icon-audio.svg);
     background-size  : 2.2rem 2.2rem;
 }
 
@@ -2949,7 +2949,7 @@ body.search-is-visible {
     text-transform      : uppercase;
     color               : rgba(255, 255, 255, 0.5);
     transition          : all .3s;
-    background-image    : url(../public/images/icons/icon-arrow-up.svg);
+    background-image    : url(../assets/images/icons/icon-arrow-up.svg);
     background-color    : #000000;
     background-repeat   : no-repeat;
     background-position : center center;

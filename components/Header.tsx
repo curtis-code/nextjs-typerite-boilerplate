@@ -15,7 +15,7 @@ function SocialLinks() {
   return (
     <ul className="header__social">
       {config.socialLinks.map((socialLink) => (
-        <li className={`ss-${socialLink.type.toString().toLowerCase()}`} key={socialLink.type}>
+        <li className={`ss-${socialLink.type.toString().toLowerCase().replace(' ', '')}`} key={socialLink.type}>
           <a href={socialLink.url}>
             <span className="screen-reader-text">{socialLink.type.toString()}</span>
           </a>

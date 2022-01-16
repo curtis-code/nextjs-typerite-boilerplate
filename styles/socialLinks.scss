@@ -62,11 +62,11 @@
     position  : absolute;
   }
 
-  $socialtypes: facebook, twitter, dribbble, behance, instagram, pinterest, rss, steam;
+  $socialtypes: facebook, twitter, dribbble, behance, instagram, pinterest, rss, stackoverflow, steam;
 
   @each $socialtype in $socialtypes {
     .ss-#{$socialtype} a::after {
-      background-image : url(../public/images/icons/social/icon-#{$socialtype}.svg);
+      background-image : url(../assets/images/icons/social/icon-#{$socialtype}.svg);
       color:white;
     }
   };
