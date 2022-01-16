@@ -1,4 +1,5 @@
-import { Config, SocialType } from './types/Config';
+import { Config } from './types/Config';
+import { SocialType } from './types/SocialType';
 
 export const config: Config = {
   title: 'Typerite',

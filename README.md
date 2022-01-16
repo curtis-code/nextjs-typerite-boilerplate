@@ -26,10 +26,10 @@ https://nextjs-typerite-boilerplate.netlify.app
 
 ### Examples
 
- - [Image & Banner Image](https://github.com/curtis-code/nextjs-typerite-boilerplate/blob/main/posts/01-just-a-standard-format-post.md)
- - [Image Carousel](https://github.com/curtis-code/nextjs-typerite-boilerplate/blob/main/posts/12-the-best-tropical-leaves-images.md)
- - [Audio](https://github.com/curtis-code/nextjs-typerite-boilerplate/blob/main/posts/07-what-your-music-preference-says-about-you-and-your-personality.md)
- - [Video](https://github.com/curtis-code/nextjs-typerite-boilerplate/blob/main/posts/09-no-sugar-oatmeal-cookies.md)
+ - [Image & Banner Image](https://github.com/curtiscde/nextjs-typerite-boilerplate/blob/main/posts/01-just-a-standard-format-post.md)
+ - [Image Carousel](https://github.com/curtiscde/nextjs-typerite-boilerplate/blob/main/posts/12-the-best-tropical-leaves-images.md)
+ - [Audio](https://github.com/curtiscde/nextjs-typerite-boilerplate/blob/main/posts/07-what-your-music-preference-says-about-you-and-your-personality.md)
+ - [Video](https://github.com/curtiscde/nextjs-typerite-boilerplate/blob/main/posts/09-no-sugar-oatmeal-cookies.md)
 
 ## Local Development
 
@@ -57,4 +57,4 @@ npm run cypress
  - [Typerite by StyleShout](https://www.styleshout.com/free-templates/typerite/)
 
 ## License
-Read More [LICENSE](https://github.com/curtis-code/nextjs-typerite-boilerplate/blob/main/LICENSE)
+Read More [LICENSE](https://github.com/curtiscde/nextjs-typerite-boilerplate/blob/main/LICENSE)

@@ -3,26 +3,11 @@ import React from 'react';
 import { config } from '../config';
 import { Post } from '../types/Post';
 import { Tag } from '../types/Tag';
+import SocialLinks from './SocialLinks';
 
 function NavigationLinks() {
   if (!config.navigationLinks || !config.navigationLinks.length) return null;
   return <>{config.navigationLinks.map((link) => <li key={link.name}><a href={link.href} title="">{link.name}</a></li>)}</>;
-}
-
-function SocialLinks() {
-  if (!config.socialLinks || !config.socialLinks.length) return null;
-
-  return (
-    <ul className="header__social">
-      {config.socialLinks.map((socialLink) => (
-        <li className={`ss-${socialLink.type.toString().toLowerCase().replace(' ', '')}`} key={socialLink.type}>
-          <a href={socialLink.url}>
-            <span className="screen-reader-text">{socialLink.type.toString()}</span>
-          </a>
-        </li>
-      ))}
-    </ul>
-  );
 }
 
 interface HeaderProps {
@@ -63,7 +48,7 @@ export default function Header({ recentPosts, topTags }: HeaderProps) {
           </li>
           <NavigationLinks />
         </ul>
-        <SocialLinks />
+        <SocialLinks socialLinks={config.socialLinks} />
       </nav>
 
       <a href="#0" className="header__menu-toggle">
