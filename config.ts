@@ -5,7 +5,7 @@ export const config: Config = {
   postsPerPage: 14,
   socialLinks: [
     {
-      type: SocialType.stackoverflow,
+      type: SocialType.facebook,
       url: 'https://facebook.com',
     },
     {

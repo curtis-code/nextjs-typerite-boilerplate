@@ -1,5 +1,6 @@
 export enum SocialType {
   facebook = 'Facebook',
+  github = 'GitHub',
   twitter = 'Twitter',
   dribbble = 'Dribbble',
   behance = 'Behance',
