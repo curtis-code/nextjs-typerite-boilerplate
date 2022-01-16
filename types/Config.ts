@@ -1,6 +1,16 @@
+export enum SocialType {
+  facebook = 'Facebook',
+  twitter = 'Twitter',
+  dribbble = 'Dribbble',
+  behance = 'Behance',
+  instagram = 'Instagram',
+  pinterest = 'PInterest',
+  rss = 'RSS',
+  steam = 'Steam',
+}
+
 interface SocialLink {
-  className: 'facebook' | 'twitter' | 'dribbble' | 'behance' | 'instagram' | 'pinterest' | 'rss',
-  name: 'Facebook' | 'Twitter' | 'Dribbble' | 'Behance' | 'Instagram' | 'Pinterest' | 'RSS',
+  type: SocialType,
   url: string,
 }
 

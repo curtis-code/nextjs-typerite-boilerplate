@@ -2494,6 +2494,10 @@ input::-moz-focus-inner {
     background-image : url(../images/icons/social/icon-rss.svg);
 }
 
+.header__social .ss-steam a::after {
+    background-image : url(../images/icons/social/icon-steam.svg);
+}
+
 /* ------------------------------------------------------------------- 
  * responsive:
  * header
