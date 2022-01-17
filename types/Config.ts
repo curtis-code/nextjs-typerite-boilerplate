@@ -1,6 +1,7 @@
+import { SocialType } from './SocialType';
+
 interface SocialLink {
-  className: 'facebook' | 'twitter' | 'dribbble' | 'behance' | 'instagram' | 'pinterest' | 'rss',
-  name: 'Facebook' | 'Twitter' | 'Dribbble' | 'Behance' | 'Instagram' | 'Pinterest' | 'RSS',
+  type: SocialType,
   url: string,
 }
 

@@ -1,0 +1,73 @@
+/* -------------------------------------------------------------------
+ * ## header social
+ * ------------------------------------------------------------------- */
+ .header__social {
+  list-style : none;
+  margin     : 4rem 0 0 0;
+  padding    : 0 0 4.4rem 0;
+  display    : -ms-flexbox;
+  display    : -webkit-flex;
+  display    : flex;
+
+  li {
+    margin-right : 2px;
+
+    &:last-child {
+      margin-right : 0;
+    }
+  }
+
+  a {
+    display          : block;
+    background-color : rgba(255, 255, 255, 0.04);
+    color            : rgba(255, 255, 255, 0.5);
+    height           : 3.6rem;
+    width            : 3.6rem;
+    border-radius    : 50%;
+    position         : relative;
+
+    &::after {
+      z-index             : 1;
+      content             : '';
+      display             : block;
+      height              : 1.4rem;
+      width               : 1.4rem;
+      background-repeat   : no-repeat;
+      background-position : center center;
+      background-size     : contain;
+      -webkit-transform   : translate(-50%, -50%);
+      transform           : translate(-50%, -50%);
+      transition          : all .3s ease-in-out;
+      position            : absolute;
+      left                : 50%;
+      right               : 0;
+      top                 : 50%;
+    }
+
+    &:hover::after {
+      height : 1.8rem;
+      width  : 1.8rem;
+    }
+  }
+
+  span {
+    clip      : rect(1px, 1px, 1px, 1px);
+    clip-path : inset(50%);
+    height    : 1px;
+    width     : 1px;
+    margin    : -1px;
+    overflow  : hidden;
+    padding   : 0;
+    border    : 0;
+    position  : absolute;
+  }
+
+  $socialtypes: facebook, github, twitter, dribbble, behance, instagram, pinterest, rss, stackoverflow, steam;
+
+  @each $socialtype in $socialtypes {
+    .ss-#{$socialtype} a::after {
+      background-image : url(../assets/images/icons/social/icon-#{$socialtype}.svg);
+      color:white;
+    }
+  };
+}

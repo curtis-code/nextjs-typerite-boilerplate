@@ -1,3 +1,4 @@
+
 /* =================================================================== 
  *
  *  Typewrite Base Stylesheet
@@ -1131,7 +1132,7 @@ input::-moz-focus-inner {
     background-repeat : no-repeat;
     background        : center center;
     background-size   : contain;
-    background-image  : url(../images/icons/icon-quote.svg);
+    background-image  : url(../assets/images/icons/icon-quote.svg);
     position          : absolute;
     top               : 4rem;
     left              : 4rem;
@@ -1497,12 +1498,12 @@ input::-moz-focus-inner {
 }
 
 .pgn__prev {
-    background-image : url("../images/icons/icon-arrow-left.svg");
+    background-image : url("../assets/images/icons/icon-arrow-left.svg");
     left             : 0;
 }
 
 .pgn__next {
-    background-image : url("../images/icons/icon-arrow-right.svg");
+    background-image : url("../assets/images/icons/icon-arrow-right.svg");
     right            : 0;
 }
 
@@ -1933,11 +1934,11 @@ input::-moz-focus-inner {
 }
 
 .format-quote .entry__thumb::before {
-    background-image : url(../images/icons/icon-quote.svg);
+    background-image : url(../assets/images/icons/icon-quote.svg);
 }
 
 .format-link .entry__thumb::before {
-    background-image : url(../images/icons/icon-link.svg);
+    background-image : url(../assets/images/icons/icon-link.svg);
 }
 
 .format-link .link-wrap cite:before {
@@ -1983,7 +1984,7 @@ input::-moz-focus-inner {
 
 .format-video .entry__thumb::after {
     cursor           : zoom-in;
-    background-image : url(../images/icons/icon-video.svg);
+    background-image : url(../assets/images/icons/icon-video.svg);
     background-size  : 3.2rem 3.2rem;
 }
 
@@ -1992,7 +1993,7 @@ input::-moz-focus-inner {
 }
 
 .format-audio .entry__thumb::after {
-    background-image : url(../images/icons/icon-audio.svg);
+    background-image : url(../assets/images/icons/icon-audio.svg);
     background-size  : 2.2rem 2.2rem;
 }
 
@@ -2399,99 +2400,6 @@ input::-moz-focus-inner {
     bottom            : 0;
     -webkit-transform : rotate(225deg);
     transform         : rotate(225deg);
-}
-
-/* -------------------------------------------------------------------
- * ## header social
- * ------------------------------------------------------------------- */
-.header__social {
-    list-style : none;
-    margin     : 4rem 0 0 0;
-    padding    : 0 0 4.4rem 0;
-    display    : -ms-flexbox;
-    display    : -webkit-flex;
-    display    : flex;
-}
-
-.header__social li {
-    margin-right : 2px;
-}
-
-.header__social li:last-child {
-    margin-right : 0;
-}
-
-.header__social a {
-    display          : block;
-    background-color : rgba(255, 255, 255, 0.04);
-    color            : rgba(255, 255, 255, 0.5);
-    height           : 3.6rem;
-    width            : 3.6rem;
-    border-radius    : 50%;
-    position         : relative;
-}
-
-.header__social a::after {
-    z-index             : 1;
-    content             : '';
-    display             : block;
-    height              : 1.4rem;
-    width               : 1.4rem;
-    background-repeat   : no-repeat;
-    background-position : center center;
-    background-size     : contain;
-    -webkit-transform   : translate(-50%, -50%);
-    transform           : translate(-50%, -50%);
-    transition          : all .3s ease-in-out;
-    position            : absolute;
-    left                : 50%;
-    right               : 0;
-    top                 : 50%;
-}
-
-.header__social a:hover::after {
-    height : 1.8rem;
-    width  : 1.8rem;
-}
-
-.header__social span {
-    clip      : rect(1px, 1px, 1px, 1px);
-    clip-path : inset(50%);
-    height    : 1px;
-    width     : 1px;
-    margin    : -1px;
-    overflow  : hidden;
-    padding   : 0;
-    border    : 0;
-    position  : absolute;
-}
-
-.header__social .ss-facebook a::after {
-    background-image : url(../images/icons/social/icon-facebook.svg);
-}
-
-.header__social .ss-twitter a::after {
-    background-image : url(../images/icons/social/icon-twitter.svg);
-}
-
-.header__social .ss-dribbble a::after {
-    background-image : url(../images/icons/social/icon-dribbble.svg);
-}
-
-.header__social .ss-behance a::after {
-    background-image : url(../images/icons/social/icon-behance.svg);
-}
-
-.header__social .ss-instagram a::after {
-    background-image : url(../images/icons/social/icon-instagram.svg);
-}
-
-.header__social .ss-pinterest a::after {
-    background-image : url(../images/icons/social/icon-pinterest.svg);
-}
-
-.header__social .ss-rss a::after {
-    background-image : url(../images/icons/social/icon-rss.svg);
 }
 
 /* ------------------------------------------------------------------- 
@@ -3041,7 +2949,7 @@ body.search-is-visible {
     text-transform      : uppercase;
     color               : rgba(255, 255, 255, 0.5);
     transition          : all .3s;
-    background-image    : url(../images/icons/icon-arrow-up.svg);
+    background-image    : url(../assets/images/icons/icon-arrow-up.svg);
     background-color    : #000000;
     background-repeat   : no-repeat;
     background-position : center center;

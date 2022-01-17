@@ -1,27 +1,24 @@
 import { Config } from './types/Config';
+import { SocialType } from './types/SocialType';
 
 export const config: Config = {
   title: 'Typerite',
   postsPerPage: 14,
   socialLinks: [
     {
-      className: 'facebook',
-      name: 'Facebook',
+      type: SocialType.facebook,
       url: 'https://facebook.com',
     },
     {
-      className: 'twitter',
-      name: 'Twitter',
+      type: SocialType.twitter,
       url: 'https://twitter.com',
     },
     {
-      className: 'dribbble',
-      name: 'Dribbble',
+      type: SocialType.dribbble,
       url: 'https://dribbble.com',
     },
     {
-      className: 'pinterest',
-      name: 'Pinterest',
+      type: SocialType.pinterest,
       url: 'https://pinterest.com',
     },
   ],
