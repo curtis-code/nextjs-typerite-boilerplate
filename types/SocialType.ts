@@ -1,12 +1,15 @@
 export enum SocialType {
+  behance = 'Behance',
+  dribbble = 'Dribbble',
   facebook = 'Facebook',
   github = 'GitHub',
-  twitter = 'Twitter',
-  dribbble = 'Dribbble',
-  behance = 'Behance',
   instagram = 'Instagram',
+  linkedin = 'LinkedIn',
+  twitch = 'Twitch',
+  twitter = 'Twitter',
   pinterest = 'PInterest',
   rss = 'RSS',
   stackoverflow = 'Stack Overflow',
   steam = 'Steam',
+  youtube = 'YouTube',
 }
