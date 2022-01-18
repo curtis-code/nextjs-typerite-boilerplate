@@ -62,7 +62,20 @@
     position  : absolute;
   }
 
-  $socialtypes: facebook, github, twitter, dribbble, behance, instagram, pinterest, rss, stackoverflow, steam;
+  $socialtypes:
+    behance,
+    dribbble,
+    facebook,
+    github,
+    instagram,
+    linkedin,
+    pinterest,
+    rss,
+    stackoverflow,
+    steam,
+    twitch,
+    twitter,
+    youtube;
 
   @each $socialtype in $socialtypes {
     .ss-#{$socialtype} a::after {
