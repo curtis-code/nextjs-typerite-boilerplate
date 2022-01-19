@@ -23,6 +23,8 @@ https://nextjs-typerite-boilerplate.netlify.app
 | bannerImage |          | Banner image(s) displayed on post page (ex.`/images/foo.png` or `['/images/foo.png', '/images/bar.png']`)   |
 | audio        |          | Audio embed URL for displaying audio on post page |
 | video        |          | Video embed URL for displaying video on post list and page |
+| disqusid        |          | Disqus identifier (`disqus` must also be provided in main configuration) |
+
 
 ### Examples
 
@@ -30,6 +32,16 @@ https://nextjs-typerite-boilerplate.netlify.app
  - [Image Carousel](https://github.com/curtiscde/nextjs-typerite-boilerplate/blob/main/posts/12-the-best-tropical-leaves-images.md)
  - [Audio](https://github.com/curtiscde/nextjs-typerite-boilerplate/blob/main/posts/07-what-your-music-preference-says-about-you-and-your-personality.md)
  - [Video](https://github.com/curtiscde/nextjs-typerite-boilerplate/blob/main/posts/09-no-sugar-oatmeal-cookies.md)
+
+## Site Configuration
+| Property    | Required | Description                          |
+|-------------|----------|--------------------------------------|
+| title       | ✅        | Site title               |
+| postsPerPage       | ✅        | How many posts should be displayed per page           |
+| navigationLinks       |        | Array of links to display in navigation            |
+| socialLinks       |        | Array of social links to display in header (max 4)           |
+| disqus       |        | Disqus account username for displaying comments on post pages           |
+| googleAnalytics       |        | Google Analytics account ID for data tracking           |
 
 ## Local Development
 
