@@ -1,12 +1,13 @@
 import { Post } from '../types/Post';
 
 export function parsePost({
-  audio, bannerImage, date, description, title, slug, tags, image, video,
+  audio, bannerImage, date, description, disqusid, title, slug, tags, image, video,
 }: any, content: string): Post {
   const post: Post = {
     content,
     date: new Date(date),
     description,
+    disqusid,
     title,
     slug,
     tags,

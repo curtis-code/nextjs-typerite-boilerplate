@@ -5,6 +5,7 @@ export interface Post {
   content: string;
   date: Date;
   description?: string;
+  disqusid?: string;
   image?: string;
   imageList?: Array<string>;
   tags?: Array<string>;
