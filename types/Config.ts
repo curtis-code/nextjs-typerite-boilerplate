@@ -12,6 +12,7 @@ interface NavigationLink {
 
 export interface Config {
   disqus?: string;
+  googleAnalytics?: string;
   postsPerPage: number;
   socialLinks?: Array<SocialLink>;
   navigationLinks?: Array<NavigationLink>;

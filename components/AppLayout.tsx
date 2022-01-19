@@ -1,8 +1,10 @@
+/* eslint-disable react/no-danger */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/anchor-has-content */
 import Head from 'next/head';
 import Script from 'next/script';
 import React from 'react';
+import { config } from '../config';
 import { Post } from '../types/Post';
 import { Tag } from '../types/Tag';
 import { generatePageTitle } from '../util/generatePageTitle';
@@ -52,6 +54,21 @@ export default function AppLayout({
       </div>
       <Footer />
       <Script type="text/javascript" src="/js/bundle.js" />
+      {config.googleAnalytics
+        && (
+          <div dangerouslySetInnerHTML={{
+            __html: `
+              <script async src="https://www.googletagmanager.com/gtag/js?id=${config.googleAnalytics}"></script>
+              <script>
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${config.googleAnalytics}');
+              </script>
+              `,
+          }}
+          />
+        )}
     </>
   );
 }
