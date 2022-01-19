@@ -1,9 +1,11 @@
 import React from 'react';
 import showdown from 'showdown';
+import { DiscussionEmbed } from 'disqus-react';
 import { Post } from '../../types/Post';
 import { getFormatClass } from '../../util/getFormatClass';
 import PostDisplayBannerImage from './PostDisplayBannerImage';
 import PostDisplayVideo from './PostDisplayVideo';
+import { config } from '../../config';
 
 function PostAudio({ audioUrl }: { audioUrl: string }) {
   return (
@@ -136,6 +138,16 @@ export default function PostDisplay({
           </div>
           <AdjacentPosts previousPost={previousPost} nextPost={nextPost} />
           <RelatedPosts relatedPosts={relatedPosts} />
+          {config.disqus && post.disqusid
+            && (
+              <DiscussionEmbed
+                shortname={config.disqus}
+                config={{
+                  identifier: post.disqusid,
+                  title: post.title,
+                }}
+              />
+            )}
         </article>
       </main>
     </div>
