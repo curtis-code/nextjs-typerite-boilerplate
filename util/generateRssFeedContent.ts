@@ -4,9 +4,9 @@ import { getPosts } from './getPosts';
 
 const generateRssItem = (post: Post): string => `
   <item>
-    <guid>${config.url}/${post.slug}</guid>
+    <guid>${config.url}/post/${post.slug}</guid>
     <title>${post.title}</title>
-    <link>${config.url}/${post.slug}</link>
+    <link>${config.url}/post/${post.slug}</link>
     <description>${post.description}</description>
     <pubDate>${new Date(post.date).toUTCString()}</pubDate>
   </item>
