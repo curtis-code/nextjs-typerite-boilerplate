@@ -17,4 +17,5 @@ export interface Config {
   socialLinks?: Array<SocialLink>;
   navigationLinks?: Array<NavigationLink>;
   title: string;
+  url: string;
 }

@@ -3,6 +3,7 @@ import { SocialType } from './types/SocialType';
 
 export const config: Config = {
   title: 'Typerite',
+  url: 'https://nextjs-typerite-boilerplate.netlify.app',
   postsPerPage: 14,
   socialLinks: [
     {
