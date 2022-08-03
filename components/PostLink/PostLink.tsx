@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Post } from '../../types/Post';
 import PostLinkImage from './PostLinkImage';
 import { getFormatClass } from '../../util/getFormatClass';
@@ -11,12 +10,6 @@ function PostTags({ tags }: { tags: Array<string> }) {
     </span>
   );
 }
-
-PostTags.propTypes = {
-  tags: PropTypes.arrayOf(
-    PropTypes.string,
-  ).isRequired,
-};
 
 function PostDescription({ description }: { description: string }) {
   return (
