@@ -15,6 +15,7 @@ import Search from './Search';
 export interface AppLayoutProps {
   recentPosts: Array<Post>;
   topTags: Array<Tag>;
+  // eslint-disable-next-line react/require-default-props
   pageTitlePrefix?: string;
 }
 
