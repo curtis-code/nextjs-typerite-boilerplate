@@ -13,13 +13,13 @@
     "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless"
   },
   "dependencies": {
-    "disqus-react": "^1.1.2",
+    "disqus-react": "^1.1.5",
     "gray-matter": "^4.0.3",
     "next": "^12.1.0",
-    "prop-types": "^15.8.0",
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "17.0.2",
-    "sass": "^1.48.0",
+    "sass": "^1.81.1",
     "showdown": "^1.9.1",
     "split-page-numbers": "^0.0.1"
   },
@@ -35,7 +35,7 @@
     "cypress": "^9.2.0",
     "cypress-wait-until": "^1.7.2",
     "eslint": "8.5.0",
-    "eslint-config-airbnb": "^19.0.2",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^16.1.0",
     "eslint-config-next": "12.0.7",
     "jest": "^27.4.5",
